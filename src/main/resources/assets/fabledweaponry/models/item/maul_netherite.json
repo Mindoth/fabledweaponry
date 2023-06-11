@@ -2,12 +2,12 @@
   "gui_light": "front",
   "loader": "forge:separate-perspective",
   "base": {
-  "credit": "Made with Blockbench",
-  "texture_size": [64, 64],
-  "textures": {
-    "0": "fabledweaponry:items/maul_wood_model",
-    "particle": "fabledweaponry:items/maul_wood_model"
-  },
+    "credit": "Made with Blockbench",
+    "texture_size": [64, 64],
+    "textures": {
+      "0": "fabledweaponry:items/maul_netherite_model",
+      "particle": "fabledweaponry:items/maul_netherite_model"
+    },
     "elements": [
       {
         "from": [3.75, 6.75, -7.25],
@@ -497,47 +497,47 @@
           "down": {"uv": [0, 5.5, 2, 7.75], "texture": "#0"}
         }
       }
-  ],
-  "display": {
-    "thirdperson_righthand": {
-      "rotation": [90, 0, 180],
-      "translation": [0, 2.5, -2]
-    },
-    "thirdperson_lefthand": {
-      "rotation": [90, 0, 180],
-      "translation": [0, 2.5, -2]
-    },
-    "firstperson_righthand": {
-      "rotation": [115, 0, 180],
-      "translation": [5.75, 5, -5]
-    },
-    "firstperson_lefthand": {
-      "rotation": [115, 0, 180],
-      "translation": [5.75, 5, -5]
-    },
-    "ground": {
-      "rotation": [-60, 0, 0],
-      "translation": [0, 12, 0]
+    ],
+    "display": {
+      "thirdperson_righthand": {
+        "rotation": [90, 0, 180],
+        "translation": [0, 2.5, -2]
+      },
+      "thirdperson_lefthand": {
+        "rotation": [90, 0, 180],
+        "translation": [0, 2.5, -2]
+      },
+      "firstperson_righthand": {
+        "rotation": [115, 0, 180],
+        "translation": [5.75, 5, -5]
+      },
+      "firstperson_lefthand": {
+        "rotation": [115, 0, 180],
+        "translation": [5.75, 5, -5]
+      },
+      "ground": {
+        "rotation": [-60, 0, 0],
+        "translation": [0, 12, 0]
+      }
     }
-  }
-},
+  },
   "perspectives": {
     "gui": {
       "parent": "item/generated",
       "textures": {
-        "layer0": "fabledweaponry:items/maul_wood"
+        "layer0": "fabledweaponry:items/maul_netherite"
       }
     },
     "ground": {
       "parent": "item/generated",
       "textures": {
-        "layer0": "fabledweaponry:items/maul_wood"
+        "layer0": "fabledweaponry:items/maul_netherite"
       }
     },
     "fixed": {
       "parent": "item/generated",
       "textures": {
-        "layer0": "fabledweaponry:items/maul_wood"
+        "layer0": "fabledweaponry:items/maul_netherite"
       }
     }
   }
