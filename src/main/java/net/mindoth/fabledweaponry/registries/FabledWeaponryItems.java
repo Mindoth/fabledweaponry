@@ -1,10 +1,7 @@
 package net.mindoth.fabledweaponry.registries;
 
 import net.mindoth.fabledweaponry.FabledWeaponry;
-import net.mindoth.fabledweaponry.item.DaggerItem;
-import net.mindoth.fabledweaponry.item.MaulItem;
-import net.mindoth.fabledweaponry.item.ScimitarItem;
-import net.mindoth.fabledweaponry.item.ScytheItem;
+import net.mindoth.fabledweaponry.item.*;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -14,42 +11,42 @@ public class FabledWeaponryItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, FabledWeaponry.MOD_ID);
 
     public static final RegistryObject<Item> GREATSWORD_WOOD = ITEMS.register("greatsword_wood",
-            () -> new SwordItem(ItemTier.WOOD, 5, -2.8F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
+            () -> new GreatswordItem(ItemTier.WOOD, 5, -2.8F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
 
     public static final RegistryObject<Item> GREATSWORD_STONE = ITEMS.register("greatsword_stone",
-            () -> new SwordItem(ItemTier.STONE, 5, -2.8F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
+            () -> new GreatswordItem(ItemTier.STONE, 5, -2.8F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
 
     public static final RegistryObject<Item> GREATSWORD_IRON = ITEMS.register("greatsword_iron",
-            () -> new SwordItem(ItemTier.IRON, 5, -2.8F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
+            () -> new GreatswordItem(ItemTier.IRON, 5, -2.8F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
 
     public static final RegistryObject<Item> GREATSWORD_GOLD = ITEMS.register("greatsword_gold",
-            () -> new SwordItem(ItemTier.GOLD, 5, -2.8F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
+            () -> new GreatswordItem(ItemTier.GOLD, 5, -2.8F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
 
     public static final RegistryObject<Item> GREATSWORD_DIAMOND = ITEMS.register("greatsword_diamond",
-            () -> new SwordItem(ItemTier.DIAMOND, 5, -2.8F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
+            () -> new GreatswordItem(ItemTier.DIAMOND, 5, -2.8F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
 
     public static final RegistryObject<Item> GREATSWORD_NETHERITE = ITEMS.register("greatsword_netherite",
-            () -> new SwordItem(ItemTier.NETHERITE, 5, -2.8F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
+            () -> new GreatswordItem(ItemTier.NETHERITE, 5, -2.8F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
 
 
 
     public static final RegistryObject<Item> WARAXE_WOOD = ITEMS.register("waraxe_wood",
-            () -> new AxeItem(ItemTier.WOOD, 5, -2.8F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
+            () -> new WaraxeItem(ItemTier.WOOD, 5, -2.8F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
 
     public static final RegistryObject<Item> WARAXE_STONE = ITEMS.register("waraxe_stone",
-            () -> new AxeItem(ItemTier.STONE, 5, -2.8F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
+            () -> new WaraxeItem(ItemTier.STONE, 5, -2.8F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
 
     public static final RegistryObject<Item> WARAXE_IRON = ITEMS.register("waraxe_iron",
-            () -> new AxeItem(ItemTier.IRON, 5, -2.8F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
+            () -> new WaraxeItem(ItemTier.IRON, 5, -2.8F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
 
     public static final RegistryObject<Item> WARAXE_GOLD = ITEMS.register("waraxe_gold",
-            () -> new AxeItem(ItemTier.GOLD, 5, -2.8F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
+            () -> new WaraxeItem(ItemTier.GOLD, 5, -2.8F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
 
     public static final RegistryObject<Item> WARAXE_DIAMOND = ITEMS.register("waraxe_diamond",
-            () -> new AxeItem(ItemTier.DIAMOND, 5, -2.8F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
+            () -> new WaraxeItem(ItemTier.DIAMOND, 5, -2.8F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
 
     public static final RegistryObject<Item> WARAXE_NETHERITE = ITEMS.register("waraxe_netherite",
-            () -> new AxeItem(ItemTier.NETHERITE, 5, -2.8F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
+            () -> new WaraxeItem(ItemTier.NETHERITE, 5, -2.8F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
 
 
 
@@ -74,22 +71,22 @@ public class FabledWeaponryItems {
 
 
     public static final RegistryObject<Item> SCYTHE_WOOD = ITEMS.register("scythe_wood",
-            () -> new ScytheItem(ItemTier.WOOD, 5, -2.8F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
+            () -> new ScytheItem(ItemTier.WOOD, 3, -3.0F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
 
     public static final RegistryObject<Item> SCYTHE_STONE = ITEMS.register("scythe_stone",
-            () -> new ScytheItem(ItemTier.STONE, 5, -2.8F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
+            () -> new ScytheItem(ItemTier.STONE, 5, -3.0F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
 
     public static final RegistryObject<Item> SCYTHE_IRON = ITEMS.register("scythe_iron",
-            () -> new ScytheItem(ItemTier.IRON, 5, -2.8F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
+            () -> new ScytheItem(ItemTier.IRON, 7, -3.0F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
 
     public static final RegistryObject<Item> SCYTHE_GOLD = ITEMS.register("scythe_gold",
-            () -> new ScytheItem(ItemTier.GOLD, 5, -2.8F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
+            () -> new ScytheItem(ItemTier.GOLD, 3, -3.0F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
 
     public static final RegistryObject<Item> SCYTHE_DIAMOND = ITEMS.register("scythe_diamond",
-            () -> new ScytheItem(ItemTier.DIAMOND, 5, -2.8F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
+            () -> new ScytheItem(ItemTier.DIAMOND, 9, -3.0F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
 
     public static final RegistryObject<Item> SCYTHE_NETHERITE = ITEMS.register("scythe_netherite",
-            () -> new ScytheItem(ItemTier.NETHERITE, 5, -2.8F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
+            () -> new ScytheItem(ItemTier.NETHERITE, 11, -3.0F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
 
 
 
