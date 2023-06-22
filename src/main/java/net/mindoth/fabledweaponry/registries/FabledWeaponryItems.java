@@ -190,6 +190,48 @@ public class FabledWeaponryItems {
     public static final RegistryObject<Item> BALLISTA_NETHERITE = ITEMS.register("ballista_netherite",
             () -> new BallistaNetherite(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(7440)));
 
+
+
+    public static final RegistryObject<Item> AEGIS_WOOD = ITEMS.register("aegis_wood",
+            () -> new AegisItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(336)));
+
+    public static final RegistryObject<Item> AEGIS_LEATHER = ITEMS.register("aegis_leather",
+            () -> new AegisItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(672)));
+
+    public static final RegistryObject<Item> AEGIS_IRON = ITEMS.register("aegis_iron",
+            () -> new AegisItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(1344)));
+
+    public static final RegistryObject<Item> AEGIS_GOLD = ITEMS.register("aegis_gold",
+            () -> new AegisItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(336)));
+
+    public static final RegistryObject<Item> AEGIS_DIAMOND = ITEMS.register("aegis_diamond",
+            () -> new AegisItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(2688)));
+
+    public static final RegistryObject<Item> AEGIS_NETHERITE = ITEMS.register("aegis_netherite",
+            () -> new AegisItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(5376)));
+
+
+
+    public static final RegistryObject<Item> BULWARK_WOOD = ITEMS.register("bulwark_wood",
+            () -> new BulwarkItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(336)));
+
+    public static final RegistryObject<Item> BULWARK_LEATHER = ITEMS.register("bulwark_leather",
+            () -> new BulwarkItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(672)));
+
+    public static final RegistryObject<Item> BULWARK_IRON = ITEMS.register("bulwark_iron",
+            () -> new BulwarkItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(1344)));
+
+    public static final RegistryObject<Item> BULWARK_GOLD = ITEMS.register("bulwark_gold",
+            () -> new BulwarkItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(336)));
+
+    public static final RegistryObject<Item> BULWARK_DIAMOND = ITEMS.register("bulwark_diamond",
+            () -> new BulwarkItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(2688)));
+
+    public static final RegistryObject<Item> BULWARK_NETHERITE = ITEMS.register("bulwark_netherite",
+            () -> new BulwarkItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(5376)));
+
+
+
     private static Item.Properties itemBuilder() {
         return new Item.Properties().tab(ItemGroup.TAB_COMBAT);
     }

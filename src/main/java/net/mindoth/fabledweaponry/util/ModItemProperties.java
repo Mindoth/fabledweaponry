@@ -1,10 +1,9 @@
 package net.mindoth.fabledweaponry.util;
 
+import net.mindoth.fabledweaponry.FabledWeaponry;
 import net.mindoth.fabledweaponry.registries.FabledWeaponryItems;
-import net.minecraft.item.CrossbowItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemModelsProperties;
-import net.minecraft.item.Items;
+import net.minecraft.item.*;
+import net.minecraft.util.IItemProvider;
 import net.minecraft.util.ResourceLocation;
 
 public class ModItemProperties {
@@ -22,6 +21,24 @@ public class ModItemProperties {
         makeCrossbow(FabledWeaponryItems.BALLISTA_GOLD.get());
         makeCrossbow(FabledWeaponryItems.BALLISTA_DIAMOND.get());
         makeCrossbow(FabledWeaponryItems.BALLISTA_NETHERITE.get());
+        makeShield(FabledWeaponryItems.AEGIS_WOOD.get());
+        makeShield(FabledWeaponryItems.AEGIS_LEATHER.get());
+        makeShield(FabledWeaponryItems.AEGIS_IRON.get());
+        makeShield(FabledWeaponryItems.AEGIS_GOLD.get());
+        makeShield(FabledWeaponryItems.AEGIS_DIAMOND.get());
+        makeShield(FabledWeaponryItems.AEGIS_NETHERITE.get());
+        makeShield(FabledWeaponryItems.BULWARK_WOOD.get());
+        makeShield(FabledWeaponryItems.BULWARK_LEATHER.get());
+        makeShield(FabledWeaponryItems.BULWARK_IRON.get());
+        makeShield(FabledWeaponryItems.BULWARK_GOLD.get());
+        makeShield(FabledWeaponryItems.BULWARK_DIAMOND.get());
+        makeShield(FabledWeaponryItems.BULWARK_NETHERITE.get());
+    }
+
+    public static void makeShield(Item item) {
+        ItemModelsProperties.register(item, new ResourceLocation("blocking"), (p_239421_0_, p_239421_1_, p_239421_2_) -> {
+            return p_239421_2_ != null && p_239421_2_.isUsingItem() && p_239421_2_.getUseItem() == p_239421_0_ ? 1.0F : 0.0F;
+        });
     }
 
     public static void makeBow(Item item) {
