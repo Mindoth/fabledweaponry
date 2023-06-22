@@ -1,0 +1,6 @@
+{
+  "parent": "fabledweaponry:item/longbow_leather",
+  "textures": {
+    "layer0": "fabledweaponry:items/longbow_leather_pulling_2"
+  }
+}

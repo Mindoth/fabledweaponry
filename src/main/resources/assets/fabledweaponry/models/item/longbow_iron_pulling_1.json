@@ -1,0 +1,6 @@
+{
+  "parent": "fabledweaponry:item/longbow_iron",
+  "textures": {
+    "layer0": "fabledweaponry:items/longbow_iron_pulling_1"
+  }
+}

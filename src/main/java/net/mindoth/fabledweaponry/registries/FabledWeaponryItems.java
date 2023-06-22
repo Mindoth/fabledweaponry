@@ -2,6 +2,7 @@ package net.mindoth.fabledweaponry.registries;
 
 import net.mindoth.fabledweaponry.FabledWeaponry;
 import net.mindoth.fabledweaponry.item.*;
+import net.mindoth.fabledweaponry.item.longbow.*;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -127,6 +128,26 @@ public class FabledWeaponryItems {
 
     public static final RegistryObject<Item> SCIMITAR_NETHERITE = ITEMS.register("scimitar_netherite",
             () -> new ScimitarItem(ItemTier.NETHERITE, 3, -2.4F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
+
+
+
+    public static final RegistryObject<Item> LONGBOW = ITEMS.register("longbow",
+            () -> new LongbowWood(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(384)));
+
+    public static final RegistryObject<Item> LONGBOW_LEATHER = ITEMS.register("longbow_leather",
+            () -> new LongbowLeather(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(768)));
+
+    public static final RegistryObject<Item> LONGBOW_IRON = ITEMS.register("longbow_iron",
+            () -> new LongbowIron(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(1536)));
+
+    public static final RegistryObject<Item> LONGBOW_GOLD = ITEMS.register("longbow_gold",
+            () -> new LongbowGold(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(384)));
+
+    public static final RegistryObject<Item> LONGBOW_DIAMOND = ITEMS.register("longbow_diamond",
+            () -> new LongbowDiamond(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(3072)));
+
+    public static final RegistryObject<Item> LONGBOW_NETHERITE = ITEMS.register("longbow_netherite",
+            () -> new LongbowNetherite(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(6144)));
 
     private static Item.Properties itemBuilder() {
         return new Item.Properties().tab(ItemGroup.TAB_COMBAT);
