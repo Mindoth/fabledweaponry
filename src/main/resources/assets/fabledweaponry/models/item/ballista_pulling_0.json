@@ -1,0 +1,6 @@
+{
+  "parent": "item/crossbow",
+  "textures": {
+    "layer0": "fabledweaponry:items/ballista_pulling_0"
+  }
+}

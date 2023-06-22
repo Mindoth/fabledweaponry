@@ -35,10 +35,22 @@
   "item.fabledweaponry.scimitar_gold": "Golden Scimitar",
   "item.fabledweaponry.scimitar_diamond": "Diamond Scimitar",
   "item.fabledweaponry.scimitar_netherite": "Netherite Scimitar",
+  "item.fabledweaponry.mace_wood": "Wooden Mace",
+  "item.fabledweaponry.mace_stone": "Stone Mace",
+  "item.fabledweaponry.mace_iron": "Iron Mace",
+  "item.fabledweaponry.mace_gold": "Golden Mace",
+  "item.fabledweaponry.mace_diamond": "Diamond Mace",
+  "item.fabledweaponry.mace_netherite": "Netherite Mace",
   "item.fabledweaponry.longbow": "Longbow",
   "item.fabledweaponry.longbow_leather": "Leather Longbow",
   "item.fabledweaponry.longbow_iron": "Iron Longbow",
   "item.fabledweaponry.longbow_gold": "Golden Longbow",
   "item.fabledweaponry.longbow_diamond": "Diamond Longbow",
-  "item.fabledweaponry.longbow_netherite": "Netherite Longbow"
+  "item.fabledweaponry.longbow_netherite": "Netherite Longbow",
+  "item.fabledweaponry.ballista": "Ballista",
+  "item.fabledweaponry.ballista_leather": "Leather Ballista",
+  "item.fabledweaponry.ballista_iron": "Iron Ballista",
+  "item.fabledweaponry.ballista_gold": "Golden Ballista",
+  "item.fabledweaponry.ballista_diamond": "Diamond Ballista",
+  "item.fabledweaponry.ballista_netherite": "Netherite Ballista"
 }

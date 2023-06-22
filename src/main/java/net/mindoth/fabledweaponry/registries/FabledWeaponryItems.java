@@ -2,6 +2,7 @@ package net.mindoth.fabledweaponry.registries;
 
 import net.mindoth.fabledweaponry.FabledWeaponry;
 import net.mindoth.fabledweaponry.item.*;
+import net.mindoth.fabledweaponry.item.ballista.*;
 import net.mindoth.fabledweaponry.item.longbow.*;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
@@ -131,6 +132,26 @@ public class FabledWeaponryItems {
 
 
 
+    public static final RegistryObject<Item> MACE_WOOD = ITEMS.register("mace_wood",
+            () -> new MaceItem(ItemTier.WOOD, 3, -2.2F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
+
+    public static final RegistryObject<Item> MACE_STONE = ITEMS.register("mace_stone",
+            () -> new MaceItem(ItemTier.STONE, 3, -2.2F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
+
+    public static final RegistryObject<Item> MACE_IRON = ITEMS.register("mace_iron",
+            () -> new MaceItem(ItemTier.IRON, 3, -2.2F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
+
+    public static final RegistryObject<Item> MACE_GOLD = ITEMS.register("mace_gold",
+            () -> new MaceItem(ItemTier.GOLD, 3, -2.2F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
+
+    public static final RegistryObject<Item> MACE_DIAMOND = ITEMS.register("mace_diamond",
+            () -> new MaceItem(ItemTier.DIAMOND, 3, -2.2F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
+
+    public static final RegistryObject<Item> MACE_NETHERITE = ITEMS.register("mace_netherite",
+            () -> new MaceItem(ItemTier.NETHERITE, 3, -2.2F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
+
+
+
     public static final RegistryObject<Item> LONGBOW = ITEMS.register("longbow",
             () -> new LongbowWood(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(384)));
 
@@ -148,6 +169,26 @@ public class FabledWeaponryItems {
 
     public static final RegistryObject<Item> LONGBOW_NETHERITE = ITEMS.register("longbow_netherite",
             () -> new LongbowNetherite(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(6144)));
+
+
+
+    public static final RegistryObject<Item> BALLISTA = ITEMS.register("ballista",
+            () -> new BallistaWood(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(465)));
+
+    public static final RegistryObject<Item> BALLISTA_LEATHER = ITEMS.register("ballista_leather",
+            () -> new BallistaLeather(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(930)));
+
+    public static final RegistryObject<Item> BALLISTA_IRON = ITEMS.register("ballista_iron",
+            () -> new BallistaIron(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(1860)));
+
+    public static final RegistryObject<Item> BALLISTA_GOLD = ITEMS.register("ballista_gold",
+            () -> new BallistaGold(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(465)));
+
+    public static final RegistryObject<Item> BALLISTA_DIAMOND = ITEMS.register("ballista_diamond",
+            () -> new BallistaDiamond(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(3720)));
+
+    public static final RegistryObject<Item> BALLISTA_NETHERITE = ITEMS.register("ballista_netherite",
+            () -> new BallistaNetherite(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(7440)));
 
     private static Item.Properties itemBuilder() {
         return new Item.Properties().tab(ItemGroup.TAB_COMBAT);
