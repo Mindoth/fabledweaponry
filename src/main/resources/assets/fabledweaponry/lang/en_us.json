@@ -64,5 +64,10 @@
   "item.fabledweaponry.ballista_iron": "Iron Ballista",
   "item.fabledweaponry.ballista_gold": "Golden Ballista",
   "item.fabledweaponry.ballista_diamond": "Diamond Ballista",
-  "item.fabledweaponry.ballista_netherite": "Netherite Ballista"
+  "item.fabledweaponry.ballista_netherite": "Netherite Ballista",
+  "item.fabledweaponry.tome_leather": "Leather Tome",
+  "item.fabledweaponry.tome_iron": "Iron Tome",
+  "item.fabledweaponry.tome_gold": "Golden Tome",
+  "item.fabledweaponry.tome_diamond": "Diamond Tome",
+  "item.fabledweaponry.tome_netherite": "Netherite Tome"
 }

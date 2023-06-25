@@ -16,7 +16,7 @@ public class BallistaIron extends BallistaItem {
     public ActionResult<ItemStack> use(World pLevel, PlayerEntity pPlayer, Hand pHand) {
         ItemStack itemstack = pPlayer.getItemInHand(pHand);
         if (isCharged(itemstack)) {
-            performShooting(pLevel, pPlayer, pHand, itemstack, getHeavyShootingPower(itemstack) * 4, 0.5F);
+            performShooting(pLevel, pPlayer, pHand, itemstack, getHeavyShootingPower(itemstack) * 2.5f, 0.5F);
             setCharged(itemstack, false);
             return ActionResult.consume(itemstack);
         } else if (!pPlayer.getProjectile(itemstack).isEmpty()) {

@@ -133,22 +133,22 @@ public class FabledWeaponryItems {
 
 
     public static final RegistryObject<Item> MACE_WOOD = ITEMS.register("mace_wood",
-            () -> new MaceItem(ItemTier.WOOD, 3, -2.2F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
+            () -> new MaceItem(ItemTier.WOOD, 3, -2.6F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
 
     public static final RegistryObject<Item> MACE_STONE = ITEMS.register("mace_stone",
-            () -> new MaceItem(ItemTier.STONE, 3, -2.2F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
+            () -> new MaceItem(ItemTier.STONE, 3, -2.6F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
 
     public static final RegistryObject<Item> MACE_IRON = ITEMS.register("mace_iron",
-            () -> new MaceItem(ItemTier.IRON, 3, -2.2F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
+            () -> new MaceItem(ItemTier.IRON, 3, -2.6F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
 
     public static final RegistryObject<Item> MACE_GOLD = ITEMS.register("mace_gold",
-            () -> new MaceItem(ItemTier.GOLD, 3, -2.2F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
+            () -> new MaceItem(ItemTier.GOLD, 3, -2.6F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
 
     public static final RegistryObject<Item> MACE_DIAMOND = ITEMS.register("mace_diamond",
-            () -> new MaceItem(ItemTier.DIAMOND, 3, -2.2F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
+            () -> new MaceItem(ItemTier.DIAMOND, 3, -2.6F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
 
     public static final RegistryObject<Item> MACE_NETHERITE = ITEMS.register("mace_netherite",
-            () -> new MaceItem(ItemTier.NETHERITE, 3, -2.2F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
+            () -> new MaceItem(ItemTier.NETHERITE, 3, -2.6F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
 
 
 
@@ -229,6 +229,23 @@ public class FabledWeaponryItems {
 
     public static final RegistryObject<Item> BULWARK_NETHERITE = ITEMS.register("bulwark_netherite",
             () -> new BulwarkItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(5376)));
+
+
+
+    public static final RegistryObject<Item> TOME_LEATHER = ITEMS.register("tome_leather",
+            () -> new TomeItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
+
+    public static final RegistryObject<Item> TOME_IRON = ITEMS.register("tome_iron",
+            () -> new TomeItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
+
+    public static final RegistryObject<Item> TOME_GOLD = ITEMS.register("tome_gold",
+            () -> new TomeItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
+
+    public static final RegistryObject<Item> TOME_DIAMOND = ITEMS.register("tome_diamond",
+            () -> new TomeItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
+
+    public static final RegistryObject<Item> TOME_NETHERITE = ITEMS.register("tome_netherite",
+            () -> new TomeItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
 
 
 

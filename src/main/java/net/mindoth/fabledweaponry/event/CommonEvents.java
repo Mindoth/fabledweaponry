@@ -14,7 +14,10 @@ import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
+import net.minecraftforge.event.entity.living.LivingHealEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -23,6 +26,9 @@ import java.util.List;
 
 @Mod.EventBusSubscriber(modid = FabledWeaponry.MOD_ID)
 public class CommonEvents {
+
+    private static final String TAG_SCYTHE_COOLDOWN = ("scytheCooldown");
+    private static final String TAG_MACE_COOLDOWN = ("maceCooldown");
 
     //TODO Maybe use sweep particle and sound to all enemies around?
 /*
@@ -53,10 +59,10 @@ public class CommonEvents {
     @SubscribeEvent
     public static void greatswordEffect(final LivingDamageEvent event) {
         //Check that its melee damage
-        if ( event.getSource().getDirectEntity() instanceof LivingEntity ) {
+        if ( event.getSource().getDirectEntity() instanceof LivingEntity && event.getSource().getEntity() instanceof LivingEntity ) {
             LivingEntity source = (LivingEntity) event.getSource().getEntity();
             LivingEntity target = event.getEntityLiving();
-            World level = source.level;
+            World level = target.level;
             float amount = event.getAmount();
 
             if ( !level.isClientSide ) {
@@ -115,10 +121,10 @@ public class CommonEvents {
     @SubscribeEvent
     public static void waraxeEffect(final LivingDamageEvent event) {
         //Check that its melee damage
-        if ( event.getSource().getDirectEntity() instanceof LivingEntity ) {
+        if ( event.getSource().getDirectEntity() instanceof LivingEntity && event.getSource().getEntity() instanceof LivingEntity ) {
             LivingEntity source = (LivingEntity) event.getSource().getEntity();
             LivingEntity target = event.getEntityLiving();
-            World level = source.level;
+            World level = target.level;
             float amount = event.getAmount();
 
             if ( !level.isClientSide ) {
@@ -193,7 +199,7 @@ public class CommonEvents {
     @SubscribeEvent
     public static void maulEffect(final LivingDamageEvent event) {
         //Check that its melee damage
-        if ( event.getSource().getDirectEntity() instanceof LivingEntity ) {
+        if ( event.getSource().getDirectEntity() instanceof LivingEntity && event.getSource().getEntity() instanceof LivingEntity ) {
             LivingEntity source = (LivingEntity) event.getSource().getEntity();
             LivingEntity target = event.getEntityLiving();
             World level = target.level;
@@ -206,8 +212,6 @@ public class CommonEvents {
             }
         }
     }
-
-    private static final String TAG_SCYTHE_COOLDOWN = ("scytheCooldown");
 
     @SubscribeEvent
     public static void scytheEffect(final LivingDamageEvent event) {
@@ -247,17 +251,134 @@ public class CommonEvents {
     @SubscribeEvent
     public static void daggerEffect(final LivingDamageEvent event) {
         //Check that its melee damage
-        if ( event.getSource().getDirectEntity() instanceof LivingEntity ) {
+        if ( event.getSource().getDirectEntity() instanceof LivingEntity && event.getSource().getEntity() instanceof LivingEntity  ) {
             LivingEntity source = (LivingEntity) event.getSource().getEntity();
             LivingEntity target = event.getEntityLiving();
             World level = target.level;
             float amount = event.getAmount();
-
             if ( !level.isClientSide ) {
                 if ( source.getItemBySlot(EquipmentSlotType.MAINHAND).getItem() instanceof DaggerItem ) {
                     double range = source.distanceTo(target);
                     event.setAmount(Math.max(amount, amount + (8 - ((float)range) * 2)) );
                     System.out.println(Math.max(amount, amount + (8 - ((float)range) * 2)));
+                }
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void maceEffect(final LivingHurtEvent event) {
+        //Check that its melee damage
+        if (event.getSource().getDirectEntity() instanceof LivingEntity && event.getSource().getEntity() instanceof LivingEntity) {
+            LivingEntity source = (LivingEntity) event.getSource().getEntity();
+            LivingEntity target = event.getEntityLiving();
+            World level = target.level;
+
+            if ( !level.isClientSide ) {
+                if ( source.getItemBySlot(EquipmentSlotType.MAINHAND).getItem() instanceof MaceItem ) {
+                    if ( source.getItemBySlot(EquipmentSlotType.MAINHAND).getItem() instanceof TomeItem || source.getItemBySlot(EquipmentSlotType.OFFHAND).getItem() instanceof TomeItem ) {
+                        event.getSource().setMagic().bypassArmor();
+                    }
+                }
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void aegisEffect(final LivingHealEvent event) {
+        LivingEntity livingEntity = event.getEntityLiving();
+        World level = livingEntity.level;
+        float amount = event.getAmount();
+        if ( !level.isClientSide ) {
+            if ( livingEntity.getItemBySlot(EquipmentSlotType.MAINHAND).getItem() instanceof AegisItem || livingEntity.getItemBySlot(EquipmentSlotType.OFFHAND).getItem() instanceof AegisItem ) {
+                Item item;
+                if ( livingEntity.getItemBySlot(EquipmentSlotType.OFFHAND).getItem() instanceof AegisItem ) {
+                    item = livingEntity.getItemBySlot(EquipmentSlotType.OFFHAND).getItem();
+                }
+                else {
+                    item = livingEntity.getItemBySlot(EquipmentSlotType.MAINHAND).getItem();
+                }
+                if ( item == FabledWeaponryItems.AEGIS_WOOD.get() ) {
+                    event.setAmount(amount * 1.10f);
+                }
+                else if ( item == FabledWeaponryItems.AEGIS_LEATHER.get() ) {
+                    event.setAmount(amount * 1.20f);
+                }
+                else if ( item == FabledWeaponryItems.AEGIS_IRON.get() ) {
+                    event.setAmount(amount * 1.30f);
+                }
+                else if ( item == FabledWeaponryItems.AEGIS_GOLD.get() ) {
+                    event.setAmount(amount * 1.10f);
+                }
+                else if ( item == FabledWeaponryItems.AEGIS_DIAMOND.get() ) {
+                    event.setAmount(amount * 1.40f);
+                }
+                else if ( item == FabledWeaponryItems.AEGIS_NETHERITE.get() ) {
+                    event.setAmount(amount * 1.50f);
+                }
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void bulwarkEffect(final TickEvent.PlayerTickEvent event) {
+        PlayerEntity player = event.player;
+        World level = player.level;
+        if ( !level.isClientSide ) {
+            if ( player.getCooldowns().isOnCooldown(FabledWeaponryItems.BULWARK_WOOD.get()) ) {
+                player.getCooldowns().removeCooldown(FabledWeaponryItems.BULWARK_WOOD.get());
+            }
+            if ( player.getCooldowns().isOnCooldown(FabledWeaponryItems.BULWARK_LEATHER.get()) ) {
+                player.getCooldowns().removeCooldown(FabledWeaponryItems.BULWARK_LEATHER.get());
+            }
+            if ( player.getCooldowns().isOnCooldown(FabledWeaponryItems.BULWARK_IRON.get()) ) {
+                player.getCooldowns().removeCooldown(FabledWeaponryItems.BULWARK_IRON.get());
+            }
+            if ( player.getCooldowns().isOnCooldown(FabledWeaponryItems.BULWARK_GOLD.get()) ) {
+                player.getCooldowns().removeCooldown(FabledWeaponryItems.BULWARK_GOLD.get());
+            }
+            if ( player.getCooldowns().isOnCooldown(FabledWeaponryItems.BULWARK_DIAMOND.get()) ) {
+                player.getCooldowns().removeCooldown(FabledWeaponryItems.BULWARK_DIAMOND.get());
+            }
+            if ( player.getCooldowns().isOnCooldown(FabledWeaponryItems.BULWARK_NETHERITE.get()) ) {
+                player.getCooldowns().removeCooldown(FabledWeaponryItems.BULWARK_NETHERITE.get());
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void tomeEffect(final LivingDamageEvent event) {
+        if ( event.getSource().getEntity() instanceof LivingEntity ) {
+            LivingEntity source = (LivingEntity) event.getSource().getEntity();
+            LivingEntity target = event.getEntityLiving();
+            World level = target.level;
+            float amount = event.getAmount();
+            if ( !level.isClientSide ) {
+                if ( source.getItemBySlot(EquipmentSlotType.MAINHAND).getItem() instanceof TomeItem || source.getItemBySlot(EquipmentSlotType.OFFHAND).getItem() instanceof TomeItem ) {
+                    Item item;
+                    if ( source.getItemBySlot(EquipmentSlotType.OFFHAND).getItem() instanceof TomeItem ) {
+                        item = source.getItemBySlot(EquipmentSlotType.OFFHAND).getItem();
+                    }
+                    else {
+                        item = source.getItemBySlot(EquipmentSlotType.MAINHAND).getItem();
+                    }
+                    if ( event.getSource().isMagic() ) {
+                        if ( item == FabledWeaponryItems.TOME_LEATHER.get() ) {
+                            event.setAmount(amount * 1.10f);
+                        }
+                        else if ( item == FabledWeaponryItems.TOME_IRON.get() ) {
+                            event.setAmount(amount * 1.20f);
+                        }
+                        else if ( item == FabledWeaponryItems.TOME_GOLD.get() ) {
+                            event.setAmount(amount * 1.30f);
+                        }
+                        else if ( item == FabledWeaponryItems.TOME_DIAMOND.get() ) {
+                            event.setAmount(amount * 1.40f);
+                        }
+                        else if ( item == FabledWeaponryItems.TOME_NETHERITE.get() ) {
+                            event.setAmount(amount * 1.50f);
+                        }
+                    }
                 }
             }
         }

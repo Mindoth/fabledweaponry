@@ -29,9 +29,9 @@ displayName="Fabled Weaponry" #mandatory
 # A file name (in the root of the mod JAR) containing a logo for display
 logoFile="examplemod.png" #optional
 # A text field displayed in the mod UI
-credits="Thanks for this example mod goes to Java" #optional
+credits="Code by Mindoth, Textures and models by Union" #optional
 # A text field displayed in the mod UI
-authors="Love, Cheese and small house plants" #optional
+authors="Mindoth" #optional
 # The description text for the mod (multi line!) (#mandatory)
 description='''
 '''
