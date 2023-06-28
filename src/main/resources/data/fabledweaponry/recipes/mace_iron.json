@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "g",
+        "#"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:stick"
+        },
+        "g": {
+            "item": "minecraft:iron_block"
+        }
+    },
+    "result": {
+        "item": "fabledweaponry:mace_iron",
+        "count": 1
+    }
+}

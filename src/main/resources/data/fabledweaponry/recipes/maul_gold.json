@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "ghg",
+        " # ",
+        " # "
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:stick"
+        },
+		"g": {
+            "item": "minecraft:gold_block"
+        },
+		"h": {
+            "item": "minecraft:golden_pickaxe"
+        }
+    },
+    "result": {
+        "item": "fabledweaponry:maul_gold",
+        "count": 1
+    }
+}

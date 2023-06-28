@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "hgh",
+        "g#g",
+        "hgh"
+    ],
+    "key": {
+        "#": {
+            "tag": "minecraft:planks"
+        },
+        "g": {
+            "item": "minecraft:iron_ingot"
+        },
+		"h": {
+            "item": "minecraft:feather"
+        }
+    },
+    "result": {
+        "item": "fabledweaponry:aegis_iron",
+        "count": 1
+    }
+}

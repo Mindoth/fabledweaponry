@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "gh ",
+        " # ",
+        " # "
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:stick"
+        },
+        "g": {
+            "tag": "minecraft:logs"
+        },
+		"h": {
+            "item": "minecraft:wooden_axe"
+        }
+    },
+    "result": {
+        "item": "fabledweaponry:waraxe_wood",
+        "count": 1
+    }
+}

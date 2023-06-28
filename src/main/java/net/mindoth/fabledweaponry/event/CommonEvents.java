@@ -28,7 +28,6 @@ import java.util.List;
 public class CommonEvents {
 
     private static final String TAG_SCYTHE_COOLDOWN = ("scytheCooldown");
-    private static final String TAG_MACE_COOLDOWN = ("maceCooldown");
 
     //TODO Maybe use sweep particle and sound to all enemies around?
 /*
@@ -221,29 +220,30 @@ public class CommonEvents {
             LivingEntity target = event.getEntityLiving();
             World level = target.level;
             float amount = event.getAmount();
-            CompoundNBT playerData = source.getPersistentData();
-            CompoundNBT data = playerData.getCompound(PlayerEntity.PERSISTED_NBT_TAG);
-
-            if ( !data.getBoolean(TAG_SCYTHE_COOLDOWN) ) {
-                data.putBoolean(TAG_SCYTHE_COOLDOWN, true);
-                if ( !level.isClientSide ) {
-                    if ( source.getItemBySlot(EquipmentSlotType.MAINHAND).getItem() instanceof ScytheItem ) {
-                        List<Entity> entitiesAround;
-                        entitiesAround = level.getEntities(target, target.getBoundingBox().inflate(2.0D, 0.0D, 2.0D), Entity::isAlive);
-                        entitiesAround.remove(target);
-                        entitiesAround.removeIf(closeEntities -> closeEntities.isAlliedTo(source));
-                        entitiesAround.removeIf(closeEntities -> !(closeEntities.getEntity() instanceof LivingEntity));
-                        if ( entitiesAround.size() > 0 ) {
-                            event.setAmount(Math.max(1, amount / (entitiesAround.size() + 1)));
-                            for ( Entity damageableEntities : entitiesAround ) {
-                                damageableEntities.hurt(event.getSource(), Math.max(1, amount / (entitiesAround.size() + 1)));
-                                //ServerWorld world = (ServerWorld) target.level;
-                                //world.sendParticles(ParticleTypes.SWEEP_ATTACK, damageableEntities.getX(), damageableEntities.getBbHeight() / 2, damageableEntities.getZ(), 1, 0, 0, 0, 0);
+            if ( source instanceof PlayerEntity ) {
+                CompoundNBT playerData = source.getPersistentData();
+                CompoundNBT data = playerData.getCompound(PlayerEntity.PERSISTED_NBT_TAG);
+                if ( !data.getBoolean(TAG_SCYTHE_COOLDOWN) ) {
+                    data.putBoolean(TAG_SCYTHE_COOLDOWN, true);
+                    if ( !level.isClientSide ) {
+                        if ( source.getItemBySlot(EquipmentSlotType.MAINHAND).getItem() instanceof ScytheItem ) {
+                            List<Entity> entitiesAround;
+                            entitiesAround = level.getEntities(target, target.getBoundingBox().inflate(2.0D, 0.0D, 2.0D), Entity::isAlive);
+                            entitiesAround.remove(target);
+                            entitiesAround.removeIf(closeEntities -> closeEntities.isAlliedTo(source));
+                            entitiesAround.removeIf(closeEntities -> !(closeEntities.getEntity() instanceof LivingEntity));
+                            if ( entitiesAround.size() > 0 ) {
+                                event.setAmount(Math.max(1, amount / (entitiesAround.size() + 1)));
+                                for ( Entity damageableEntities : entitiesAround ) {
+                                    damageableEntities.hurt(event.getSource(), Math.max(1, amount / (entitiesAround.size() + 1)));
+                                    //ServerWorld world = (ServerWorld) target.level;
+                                    //world.sendParticles(ParticleTypes.SWEEP_ATTACK, damageableEntities.getX(), damageableEntities.getBbHeight() / 2, damageableEntities.getZ(), 1, 0, 0, 0, 0);
+                                }
                             }
                         }
                     }
+                    data.putBoolean(TAG_SCYTHE_COOLDOWN, false);
                 }
-                data.putBoolean(TAG_SCYTHE_COOLDOWN, false);
             }
         }
     }

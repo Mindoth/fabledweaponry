@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "hg",
+        " #",
+        " #"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:stick"
+        },
+        "g": {
+            "item": "minecraft:wooden_hoe"
+        },
+		"h": {
+            "tag": "minecraft:logs"
+        }
+    },
+    "result": {
+        "item": "fabledweaponry:scythe_wood",
+        "count": 1
+    }
+}

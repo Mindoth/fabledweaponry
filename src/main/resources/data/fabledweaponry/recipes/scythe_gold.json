@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "hg",
+        " #",
+        " #"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:stick"
+        },
+        "g": {
+            "item": "minecraft:golden_hoe"
+        },
+		"h": {
+            "item": "minecraft:gold_block"
+        }
+    },
+    "result": {
+        "item": "fabledweaponry:scythe_gold",
+        "count": 1
+    }
+}

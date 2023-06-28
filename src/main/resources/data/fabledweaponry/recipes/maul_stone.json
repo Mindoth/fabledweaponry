@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "ghg",
+        " # ",
+        " # "
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:stick"
+        },
+		"g": {
+            "item": "minecraft:stone"
+        },
+		"h": {
+            "item": "minecraft:stone_pickaxe"
+        }
+    },
+    "result": {
+        "item": "fabledweaponry:maul_stone",
+        "count": 1
+    }
+}

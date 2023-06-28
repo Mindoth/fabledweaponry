@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "gh ",
+        " # ",
+        " # "
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:stick"
+        },
+        "g": {
+            "item": "minecraft:stone"
+        },
+		"h": {
+            "item": "minecraft:stone_axe"
+        }
+    },
+    "result": {
+        "item": "fabledweaponry:waraxe_stone",
+        "count": 1
+    }
+}

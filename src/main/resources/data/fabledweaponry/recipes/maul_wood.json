@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "ghg",
+        " # ",
+        " # "
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:stick"
+        },
+		"g": {
+            "tag": "minecraft:logs"
+        },
+		"h": {
+            "item": "minecraft:wooden_pickaxe"
+        }
+    },
+    "result": {
+        "item": "fabledweaponry:maul_wood",
+        "count": 1
+    }
+}

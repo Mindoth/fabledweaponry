@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "ggg",
+        "hih",
+        " # "
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:stick"
+        },
+        "g": {
+            "tag": "minecraft:planks"
+        },
+		"h": {
+            "item": "minecraft:string"
+        },
+		"i": {
+            "item": "minecraft:tripwire_hook"
+        }
+    },
+    "result": {
+        "item": "fabledweaponry:ballista",
+        "count": 1
+    }
+}

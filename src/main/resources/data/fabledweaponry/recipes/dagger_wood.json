@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "g",
+        "#"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:stick"
+        },
+        "g": {
+            "tag": "minecraft:planks"
+        }
+    },
+    "result": {
+        "item": "fabledweaponry:dagger_wood",
+        "count": 1
+    }
+}

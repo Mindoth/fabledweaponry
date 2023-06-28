@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "gh ",
+        " # ",
+        " # "
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:stick"
+        },
+        "g": {
+            "item": "minecraft:iron_block"
+        },
+		"h": {
+            "item": "minecraft:iron_axe"
+        }
+    },
+    "result": {
+        "item": "fabledweaponry:waraxe_iron",
+        "count": 1
+    }
+}

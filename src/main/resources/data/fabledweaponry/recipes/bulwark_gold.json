@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "g#g",
+        "g#g",
+        " g "
+    ],
+    "key": {
+        "#": {
+            "tag": "minecraft:planks"
+        },
+        "g": {
+            "item": "minecraft:gold_ingot"
+        }
+    },
+    "result": {
+        "item": "fabledweaponry:bulwark_gold",
+        "count": 1
+    }
+}

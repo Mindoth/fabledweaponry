@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "g#h",
+        "# h",
+        "g#h"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:stick"
+        },
+        "g": {
+            "item": "minecraft:leather"
+        },
+		"h": {
+            "item": "minecraft:string"
+        }
+    },
+    "result": {
+        "item": "fabledweaponry:longbow_leather",
+        "count": 1
+    }
+}

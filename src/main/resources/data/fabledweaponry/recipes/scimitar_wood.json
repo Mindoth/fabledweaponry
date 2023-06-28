@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "gg",
+        "g ",
+        "# "
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:stick"
+        },
+        "g": {
+            "tags": "minecraft:planks"
+        }
+    },
+    "result": {
+        "item": "fabledweaponry:scimitar_wood",
+        "count": 1
+    }
+}

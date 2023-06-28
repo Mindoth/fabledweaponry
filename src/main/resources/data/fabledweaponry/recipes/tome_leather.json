@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#g"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:book"
+        },
+        "g": {
+            "item": "minecraft:leather"
+        }
+    },
+    "result": {
+        "item": "fabledweaponry:tome_leather",
+        "count": 1
+    }
+}

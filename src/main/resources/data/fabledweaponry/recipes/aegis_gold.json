@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "hgh",
+        "g#g",
+        "hgh"
+    ],
+    "key": {
+        "#": {
+            "tag": "minecraft:planks"
+        },
+        "g": {
+            "item": "minecraft:gold_ingot"
+        },
+		"h": {
+            "item": "minecraft:feather"
+        }
+    },
+    "result": {
+        "item": "fabledweaponry:aegis_gold",
+        "count": 1
+    }
+}

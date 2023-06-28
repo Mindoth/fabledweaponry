@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "g",
+        "h",
+        "#"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:stick"
+        },
+        "g": {
+            "item": "minecraft:diamond_block"
+        },
+		"h": {
+            "item": "minecraft:diamond_sword"
+        }
+    },
+    "result": {
+        "item": "fabledweaponry:greatsword_diamond",
+        "count": 1
+    }
+}

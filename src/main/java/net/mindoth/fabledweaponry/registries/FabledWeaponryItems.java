@@ -28,7 +28,7 @@ public class FabledWeaponryItems {
             () -> new GreatswordItem(ItemTier.DIAMOND, 5, -2.8F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
 
     public static final RegistryObject<Item> GREATSWORD_NETHERITE = ITEMS.register("greatsword_netherite",
-            () -> new GreatswordItem(ItemTier.NETHERITE, 5, -2.8F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
+            () -> new GreatswordItem(ItemTier.NETHERITE, 5, -2.8F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1).fireResistant()));
 
 
 
@@ -48,7 +48,7 @@ public class FabledWeaponryItems {
             () -> new WaraxeItem(ItemTier.DIAMOND, 5, -2.8F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
 
     public static final RegistryObject<Item> WARAXE_NETHERITE = ITEMS.register("waraxe_netherite",
-            () -> new WaraxeItem(ItemTier.NETHERITE, 5, -2.8F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
+            () -> new WaraxeItem(ItemTier.NETHERITE, 5, -2.8F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1).fireResistant()));
 
 
 
@@ -68,7 +68,7 @@ public class FabledWeaponryItems {
             () -> new MaulItem(ItemTier.DIAMOND, 6, -3.0F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
 
     public static final RegistryObject<Item> MAUL_NETHERITE = ITEMS.register("maul_netherite",
-            () -> new MaulItem(ItemTier.NETHERITE, 6, -3.0F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
+            () -> new MaulItem(ItemTier.NETHERITE, 6, -3.0F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1).fireResistant()));
 
 
 
@@ -88,7 +88,7 @@ public class FabledWeaponryItems {
             () -> new ScytheItem(ItemTier.DIAMOND, 9, -3.0F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
 
     public static final RegistryObject<Item> SCYTHE_NETHERITE = ITEMS.register("scythe_netherite",
-            () -> new ScytheItem(ItemTier.NETHERITE, 11, -3.0F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
+            () -> new ScytheItem(ItemTier.NETHERITE, 11, -3.0F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1).fireResistant()));
 
 
 
@@ -108,7 +108,7 @@ public class FabledWeaponryItems {
             () -> new DaggerItem(ItemTier.DIAMOND, 0, -2.4F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
 
     public static final RegistryObject<Item> DAGGER_NETHERITE = ITEMS.register("dagger_netherite",
-            () -> new DaggerItem(ItemTier.NETHERITE, 0, -2.4F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
+            () -> new DaggerItem(ItemTier.NETHERITE, 0, -2.4F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1).fireResistant()));
 
 
 
@@ -128,7 +128,7 @@ public class FabledWeaponryItems {
             () -> new ScimitarItem(ItemTier.DIAMOND, 3, -2.4F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
 
     public static final RegistryObject<Item> SCIMITAR_NETHERITE = ITEMS.register("scimitar_netherite",
-            () -> new ScimitarItem(ItemTier.NETHERITE, 3, -2.4F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
+            () -> new ScimitarItem(ItemTier.NETHERITE, 3, -2.4F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1).fireResistant()));
 
 
 
@@ -148,7 +148,7 @@ public class FabledWeaponryItems {
             () -> new MaceItem(ItemTier.DIAMOND, 3, -2.6F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
 
     public static final RegistryObject<Item> MACE_NETHERITE = ITEMS.register("mace_netherite",
-            () -> new MaceItem(ItemTier.NETHERITE, 3, -2.6F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
+            () -> new MaceItem(ItemTier.NETHERITE, 3, -2.6F, new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1).fireResistant()));
 
 
 
@@ -168,7 +168,7 @@ public class FabledWeaponryItems {
             () -> new LongbowDiamond(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(3072)));
 
     public static final RegistryObject<Item> LONGBOW_NETHERITE = ITEMS.register("longbow_netherite",
-            () -> new LongbowNetherite(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(6144)));
+            () -> new LongbowNetherite(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(6144).fireResistant()));
 
 
 
@@ -188,7 +188,7 @@ public class FabledWeaponryItems {
             () -> new BallistaDiamond(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(3720)));
 
     public static final RegistryObject<Item> BALLISTA_NETHERITE = ITEMS.register("ballista_netherite",
-            () -> new BallistaNetherite(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(7440)));
+            () -> new BallistaNetherite(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(7440).fireResistant()));
 
 
 
@@ -208,7 +208,7 @@ public class FabledWeaponryItems {
             () -> new AegisItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(2688)));
 
     public static final RegistryObject<Item> AEGIS_NETHERITE = ITEMS.register("aegis_netherite",
-            () -> new AegisItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(5376)));
+            () -> new AegisItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(5376).fireResistant()));
 
 
 
@@ -228,24 +228,24 @@ public class FabledWeaponryItems {
             () -> new BulwarkItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(2688)));
 
     public static final RegistryObject<Item> BULWARK_NETHERITE = ITEMS.register("bulwark_netherite",
-            () -> new BulwarkItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(5376)));
+            () -> new BulwarkItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(5376).fireResistant()));
 
 
 
     public static final RegistryObject<Item> TOME_LEATHER = ITEMS.register("tome_leather",
-            () -> new TomeItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
+            () -> new TomeItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
 
     public static final RegistryObject<Item> TOME_IRON = ITEMS.register("tome_iron",
-            () -> new TomeItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
+            () -> new TomeItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
 
     public static final RegistryObject<Item> TOME_GOLD = ITEMS.register("tome_gold",
-            () -> new TomeItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
+            () -> new TomeItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
 
     public static final RegistryObject<Item> TOME_DIAMOND = ITEMS.register("tome_diamond",
-            () -> new TomeItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
+            () -> new TomeItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1)));
 
     public static final RegistryObject<Item> TOME_NETHERITE = ITEMS.register("tome_netherite",
-            () -> new TomeItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT)));
+            () -> new TomeItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT).stacksTo(1).fireResistant()));
 
 
 

@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "ggg",
+        "hih",
+        " # "
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:stick"
+        },
+        "g": {
+            "item": "minecraft:leather"
+        },
+		"h": {
+            "item": "minecraft:string"
+        },
+		"i": {
+            "item": "minecraft:tripwire_hook"
+        }
+    },
+    "result": {
+        "item": "fabledweaponry:ballista_leather",
+        "count": 1
+    }
+}

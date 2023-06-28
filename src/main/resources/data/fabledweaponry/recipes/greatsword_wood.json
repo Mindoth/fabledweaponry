@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "g",
+        "h",
+        "#"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:stick"
+        },
+        "g": {
+            "tag": "minecraft:logs"
+        },
+		"h": {
+            "item": "minecraft:wooden_sword"
+        }
+    },
+    "result": {
+        "item": "fabledweaponry:greatsword_wood",
+        "count": 1
+    }
+}

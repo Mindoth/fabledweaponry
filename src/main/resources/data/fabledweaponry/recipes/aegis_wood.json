@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "hgh",
+        "g#g",
+        "hgh"
+    ],
+    "key": {
+        "#": {
+            "tag": "minecraft:planks"
+        },
+        "g": {
+            "tag": "minecraft:logs"
+        },
+		"h": {
+            "item": "minecraft:feather"
+        }
+    },
+    "result": {
+        "item": "fabledweaponry:aegis_wood",
+        "count": 1
+    }
+}

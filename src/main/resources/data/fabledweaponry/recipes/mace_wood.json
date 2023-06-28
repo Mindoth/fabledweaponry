@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "g",
+        "#"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:stick"
+        },
+        "g": {
+            "tag": "minecraft:logs"
+        }
+    },
+    "result": {
+        "item": "fabledweaponry:mace_wood",
+        "count": 1
+    }
+}

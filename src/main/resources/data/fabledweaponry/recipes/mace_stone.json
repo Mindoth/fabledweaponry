@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "g",
+        "#"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:stick"
+        },
+        "g": {
+            "item": "minecraft:stone"
+        }
+    },
+    "result": {
+        "item": "fabledweaponry:mace_stone",
+        "count": 1
+    }
+}
