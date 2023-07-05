@@ -260,7 +260,6 @@ public class CommonEvents {
                 if ( source.getItemBySlot(EquipmentSlotType.MAINHAND).getItem() instanceof DaggerItem ) {
                     double range = source.distanceTo(target);
                     event.setAmount(Math.max(amount, amount + (8 - ((float)range) * 2)) );
-                    System.out.println(Math.max(amount, amount + (8 - ((float)range) * 2)));
                 }
             }
         }
@@ -325,23 +324,29 @@ public class CommonEvents {
         PlayerEntity player = event.player;
         World level = player.level;
         if ( !level.isClientSide ) {
-            if ( player.getCooldowns().isOnCooldown(FabledWeaponryItems.BULWARK_WOOD.get()) ) {
+            if ( player.getCooldowns().getCooldownPercent(FabledWeaponryItems.BULWARK_WOOD.get(), 0) >= 0.1F ) {
                 player.getCooldowns().removeCooldown(FabledWeaponryItems.BULWARK_WOOD.get());
+                player.getCooldowns().addCooldown(FabledWeaponryItems.BULWARK_WOOD.get(), 1);
             }
-            if ( player.getCooldowns().isOnCooldown(FabledWeaponryItems.BULWARK_LEATHER.get()) ) {
+            if ( player.getCooldowns().getCooldownPercent(FabledWeaponryItems.BULWARK_LEATHER.get(), 0) >= 0.1F ) {
                 player.getCooldowns().removeCooldown(FabledWeaponryItems.BULWARK_LEATHER.get());
+                player.getCooldowns().addCooldown(FabledWeaponryItems.BULWARK_LEATHER.get(), 1);
             }
-            if ( player.getCooldowns().isOnCooldown(FabledWeaponryItems.BULWARK_IRON.get()) ) {
+            if ( player.getCooldowns().getCooldownPercent(FabledWeaponryItems.BULWARK_IRON.get(), 0) >= 0.1F ) {
                 player.getCooldowns().removeCooldown(FabledWeaponryItems.BULWARK_IRON.get());
+                player.getCooldowns().addCooldown(FabledWeaponryItems.BULWARK_IRON.get(), 1);
             }
-            if ( player.getCooldowns().isOnCooldown(FabledWeaponryItems.BULWARK_GOLD.get()) ) {
+            if ( player.getCooldowns().getCooldownPercent(FabledWeaponryItems.BULWARK_GOLD.get(), 0) >= 0.1F ) {
                 player.getCooldowns().removeCooldown(FabledWeaponryItems.BULWARK_GOLD.get());
+                player.getCooldowns().addCooldown(FabledWeaponryItems.BULWARK_GOLD.get(), 1);
             }
-            if ( player.getCooldowns().isOnCooldown(FabledWeaponryItems.BULWARK_DIAMOND.get()) ) {
+            if ( player.getCooldowns().getCooldownPercent(FabledWeaponryItems.BULWARK_DIAMOND.get(), 0) >= 0.1F ) {
                 player.getCooldowns().removeCooldown(FabledWeaponryItems.BULWARK_DIAMOND.get());
+                player.getCooldowns().addCooldown(FabledWeaponryItems.BULWARK_DIAMOND.get(), 1);
             }
-            if ( player.getCooldowns().isOnCooldown(FabledWeaponryItems.BULWARK_NETHERITE.get()) ) {
+            if ( player.getCooldowns().getCooldownPercent(FabledWeaponryItems.BULWARK_NETHERITE.get(), 0) >= 0.1F ) {
                 player.getCooldowns().removeCooldown(FabledWeaponryItems.BULWARK_NETHERITE.get());
+                player.getCooldowns().addCooldown(FabledWeaponryItems.BULWARK_NETHERITE.get(), 1);
             }
         }
     }
