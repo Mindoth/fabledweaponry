@@ -235,7 +235,7 @@ public class CommonEvents {
                             if ( entitiesAround.size() > 0 ) {
                                 event.setAmount(Math.max(1, amount / (entitiesAround.size() + 1)));
                                 for ( Entity damageableEntities : entitiesAround ) {
-                                    damageableEntities.hurt(event.getSource(), Math.max(1, amount / (entitiesAround.size() + 1)));
+                                    damageableEntities.hurt(DamageSource.playerAttack((PlayerEntity)source), Math.max(1, amount / (entitiesAround.size() + 1)));
                                     //ServerWorld world = (ServerWorld) target.level;
                                     //world.sendParticles(ParticleTypes.SWEEP_ATTACK, damageableEntities.getX(), damageableEntities.getBbHeight() / 2, damageableEntities.getZ(), 1, 0, 0, 0, 0);
                                 }
@@ -243,6 +243,7 @@ public class CommonEvents {
                         }
                     }
                     data.putBoolean(TAG_SCYTHE_COOLDOWN, false);
+                    data.remove(TAG_SCYTHE_COOLDOWN);
                 }
             }
         }
