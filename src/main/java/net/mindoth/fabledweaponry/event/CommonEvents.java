@@ -29,32 +29,6 @@ public class CommonEvents {
 
     private static final String TAG_SCYTHE_COOLDOWN = ("scytheCooldown");
 
-    //TODO Maybe use sweep particle and sound to all enemies around?
-/*
-    @SubscribeEvent
-    public static void scytheSpin(final LivingDamageEvent event) {
-        //Check that its melee damage
-        if ( event.getSource().getDirectEntity() instanceof LivingEntity ) {
-            LivingEntity source = (LivingEntity) event.getSource().getEntity();
-            LivingEntity target = event.getEntityLiving();
-            World level = target.level;
-            float amount = event.getAmount();
-
-            if ( !level.isClientSide ) {
-                if ( source.getItemBySlot(EquipmentSlotType.MAINHAND).getItem() instanceof ScytheItem ) {
-                    double range = source.distanceTo(target);
-                    List<Entity> entitiesAround = level.getEntities(source, source.getBoundingBox().inflate(range, 0.0D, range));
-
-                    for (Entity listedEntity : entitiesAround) {
-                        if (source.canAttack(target) && !source.isAlliedTo(target)) {
-                            listedEntity.hurt(event.getSource(), amount);
-                        }
-                    }
-                }
-            }
-        }
-    }
-*/
     @SubscribeEvent
     public static void greatswordEffect(final LivingDamageEvent event) {
         //Check that its melee damage
@@ -325,29 +299,25 @@ public class CommonEvents {
         PlayerEntity player = event.player;
         World level = player.level;
         if ( !level.isClientSide ) {
-            if ( player.getCooldowns().getCooldownPercent(FabledWeaponryItems.BULWARK_WOOD.get(), 0) >= 0.1F ) {
-                player.getCooldowns().removeCooldown(FabledWeaponryItems.BULWARK_WOOD.get());
-                player.getCooldowns().addCooldown(FabledWeaponryItems.BULWARK_WOOD.get(), 1);
-            }
-            if ( player.getCooldowns().getCooldownPercent(FabledWeaponryItems.BULWARK_LEATHER.get(), 0) >= 0.1F ) {
-                player.getCooldowns().removeCooldown(FabledWeaponryItems.BULWARK_LEATHER.get());
-                player.getCooldowns().addCooldown(FabledWeaponryItems.BULWARK_LEATHER.get(), 1);
-            }
-            if ( player.getCooldowns().getCooldownPercent(FabledWeaponryItems.BULWARK_IRON.get(), 0) >= 0.1F ) {
-                player.getCooldowns().removeCooldown(FabledWeaponryItems.BULWARK_IRON.get());
-                player.getCooldowns().addCooldown(FabledWeaponryItems.BULWARK_IRON.get(), 1);
-            }
-            if ( player.getCooldowns().getCooldownPercent(FabledWeaponryItems.BULWARK_GOLD.get(), 0) >= 0.1F ) {
-                player.getCooldowns().removeCooldown(FabledWeaponryItems.BULWARK_GOLD.get());
-                player.getCooldowns().addCooldown(FabledWeaponryItems.BULWARK_GOLD.get(), 1);
-            }
-            if ( player.getCooldowns().getCooldownPercent(FabledWeaponryItems.BULWARK_DIAMOND.get(), 0) >= 0.1F ) {
-                player.getCooldowns().removeCooldown(FabledWeaponryItems.BULWARK_DIAMOND.get());
-                player.getCooldowns().addCooldown(FabledWeaponryItems.BULWARK_DIAMOND.get(), 1);
-            }
-            if ( player.getCooldowns().getCooldownPercent(FabledWeaponryItems.BULWARK_NETHERITE.get(), 0) >= 0.1F ) {
-                player.getCooldowns().removeCooldown(FabledWeaponryItems.BULWARK_NETHERITE.get());
-                player.getCooldowns().addCooldown(FabledWeaponryItems.BULWARK_NETHERITE.get(), 1);
+            if ( !player.isBlocking() ) {
+                if ( player.getCooldowns().getCooldownPercent(FabledWeaponryItems.BULWARK_WOOD.get(), 0) > 0 ) {
+                    player.getCooldowns().removeCooldown(FabledWeaponryItems.BULWARK_WOOD.get());
+                }
+                if ( player.getCooldowns().getCooldownPercent(FabledWeaponryItems.BULWARK_LEATHER.get(), 0) > 0 ) {
+                    player.getCooldowns().removeCooldown(FabledWeaponryItems.BULWARK_LEATHER.get());
+                }
+                if ( player.getCooldowns().getCooldownPercent(FabledWeaponryItems.BULWARK_IRON.get(), 0) > 0 ) {
+                    player.getCooldowns().removeCooldown(FabledWeaponryItems.BULWARK_IRON.get());
+                }
+                if ( player.getCooldowns().getCooldownPercent(FabledWeaponryItems.BULWARK_GOLD.get(), 0) > 0 ) {
+                    player.getCooldowns().removeCooldown(FabledWeaponryItems.BULWARK_GOLD.get());
+                }
+                if ( player.getCooldowns().getCooldownPercent(FabledWeaponryItems.BULWARK_DIAMOND.get(), 0) > 0 ) {
+                    player.getCooldowns().removeCooldown(FabledWeaponryItems.BULWARK_DIAMOND.get());
+                }
+                if ( player.getCooldowns().getCooldownPercent(FabledWeaponryItems.BULWARK_NETHERITE.get(), 0) > 0 ) {
+                    player.getCooldowns().removeCooldown(FabledWeaponryItems.BULWARK_NETHERITE.get());
+                }
             }
         }
     }
