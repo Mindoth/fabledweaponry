@@ -2,7 +2,9 @@ package net.mindoth.fabledweaponry.registries;
 
 import net.mindoth.fabledweaponry.FabledWeaponry;
 import net.mindoth.fabledweaponry.item.*;
+import net.mindoth.fabledweaponry.item.aegis.*;
 import net.mindoth.fabledweaponry.item.ballista.*;
+import net.mindoth.fabledweaponry.item.bulwark.*;
 import net.mindoth.fabledweaponry.item.longbow.*;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
@@ -193,42 +195,42 @@ public class FabledWeaponryItems {
 
 
     public static final RegistryObject<Item> AEGIS_WOOD = ITEMS.register("aegis_wood",
-            () -> new AegisItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(336)));
+            () -> new AegisWood(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(336)));
 
     public static final RegistryObject<Item> AEGIS_LEATHER = ITEMS.register("aegis_leather",
-            () -> new AegisItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(672)));
+            () -> new AegisLeather(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(672)));
 
     public static final RegistryObject<Item> AEGIS_IRON = ITEMS.register("aegis_iron",
-            () -> new AegisItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(1344)));
+            () -> new AegisIron(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(1344)));
 
     public static final RegistryObject<Item> AEGIS_GOLD = ITEMS.register("aegis_gold",
-            () -> new AegisItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(336)));
+            () -> new AegisGold(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(336)));
 
     public static final RegistryObject<Item> AEGIS_DIAMOND = ITEMS.register("aegis_diamond",
-            () -> new AegisItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(2688)));
+            () -> new AegisDiamond(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(2688)));
 
     public static final RegistryObject<Item> AEGIS_NETHERITE = ITEMS.register("aegis_netherite",
-            () -> new AegisItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(5376).fireResistant()));
+            () -> new AegisNetherite(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(5376).fireResistant()));
 
 
 
     public static final RegistryObject<Item> BULWARK_WOOD = ITEMS.register("bulwark_wood",
-            () -> new BulwarkItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(336)));
+            () -> new BulwarkWood(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(336)));
 
     public static final RegistryObject<Item> BULWARK_LEATHER = ITEMS.register("bulwark_leather",
-            () -> new BulwarkItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(672)));
+            () -> new BulwarkLeather(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(672)));
 
     public static final RegistryObject<Item> BULWARK_IRON = ITEMS.register("bulwark_iron",
-            () -> new BulwarkItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(1344)));
+            () -> new BulwarkIron(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(1344)));
 
     public static final RegistryObject<Item> BULWARK_GOLD = ITEMS.register("bulwark_gold",
-            () -> new BulwarkItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(336)));
+            () -> new BulwarkGold(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(336)));
 
     public static final RegistryObject<Item> BULWARK_DIAMOND = ITEMS.register("bulwark_diamond",
-            () -> new BulwarkItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(2688)));
+            () -> new BulwarkDiamond(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(2688)));
 
     public static final RegistryObject<Item> BULWARK_NETHERITE = ITEMS.register("bulwark_netherite",
-            () -> new BulwarkItem(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(5376).fireResistant()));
+            () -> new BulwarkNetherite(new Item.Properties().tab(ItemGroup.TAB_COMBAT).durability(5376).fireResistant()));
 
 
 
