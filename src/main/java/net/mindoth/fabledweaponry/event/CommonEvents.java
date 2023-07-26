@@ -5,23 +5,23 @@ import net.mindoth.fabledweaponry.item.*;
 import net.mindoth.fabledweaponry.registries.FabledWeaponryItems;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingHealEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
+import net.union.unionsupgradescrolls.item.UpgradeScroll13Item;
+import net.union.unionsupgradescrolls.item.UpgradeScroll15Item;
+import net.union.unionsupgradescrolls.item.UpgradeScroll8Item;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Mod.EventBusSubscriber(modid = FabledWeaponry.MOD_ID)
@@ -294,12 +294,44 @@ public class CommonEvents {
         }
     }
 
+    private static boolean isShieldScroll(Item item) {
+        boolean isTrue = false;
+        if ( ModList.get().isLoaded("union_upgrade_scrolls") ) {
+            if ( item instanceof UpgradeScroll8Item.ItemCustom || item instanceof UpgradeScroll13Item.ItemCustom || item instanceof UpgradeScroll15Item.ItemCustom ) {
+                isTrue = true;
+            }
+        }
+        return isTrue;
+    }
+
     @SubscribeEvent
     public static void bulwarkEffect(final TickEvent.PlayerTickEvent event) {
         PlayerEntity player = event.player;
         World level = player.level;
         if ( !level.isClientSide ) {
-            if ( !player.isBlocking() ) {
+            if ( ModList.get().isLoaded("union_upgrade_scrolls") ) {
+                if ( !isShieldScroll(player.getOffhandItem().getItem()) ) {
+                    if (player.getCooldowns().getCooldownPercent(FabledWeaponryItems.BULWARK_WOOD.get(), 0) > 0) {
+                        player.getCooldowns().removeCooldown(FabledWeaponryItems.BULWARK_WOOD.get());
+                    }
+                    if (player.getCooldowns().getCooldownPercent(FabledWeaponryItems.BULWARK_LEATHER.get(), 0) > 0) {
+                        player.getCooldowns().removeCooldown(FabledWeaponryItems.BULWARK_LEATHER.get());
+                    }
+                    if (player.getCooldowns().getCooldownPercent(FabledWeaponryItems.BULWARK_IRON.get(), 0) > 0) {
+                        player.getCooldowns().removeCooldown(FabledWeaponryItems.BULWARK_IRON.get());
+                    }
+                    if (player.getCooldowns().getCooldownPercent(FabledWeaponryItems.BULWARK_GOLD.get(), 0) > 0) {
+                        player.getCooldowns().removeCooldown(FabledWeaponryItems.BULWARK_GOLD.get());
+                    }
+                    if (player.getCooldowns().getCooldownPercent(FabledWeaponryItems.BULWARK_DIAMOND.get(), 0) > 0) {
+                        player.getCooldowns().removeCooldown(FabledWeaponryItems.BULWARK_DIAMOND.get());
+                    }
+                    if (player.getCooldowns().getCooldownPercent(FabledWeaponryItems.BULWARK_NETHERITE.get(), 0) > 0) {
+                        player.getCooldowns().removeCooldown(FabledWeaponryItems.BULWARK_NETHERITE.get());
+                    }
+                }
+            }
+            else {
                 if ( player.getCooldowns().getCooldownPercent(FabledWeaponryItems.BULWARK_WOOD.get(), 0) > 0 ) {
                     player.getCooldowns().removeCooldown(FabledWeaponryItems.BULWARK_WOOD.get());
                 }
