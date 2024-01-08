@@ -23,7 +23,7 @@
     }
   },
   "textures": {
-    "layer0": "fabledweaponry:items/longbow_netherite"
+    "layer0": "fabledweaponry:item/longbow_netherite"
   },
   "overrides": [
     {

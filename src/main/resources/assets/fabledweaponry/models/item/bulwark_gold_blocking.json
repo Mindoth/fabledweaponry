@@ -1,7 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "fabledweaponry:items/bulwark_gold"
+    "layer0": "fabledweaponry:item/bulwark_gold"
   },
   "display": {
     "thirdperson_righthand": {

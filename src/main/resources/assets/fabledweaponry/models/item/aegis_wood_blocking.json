@@ -1,7 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "fabledweaponry:items/aegis_wood"
+    "layer0": "fabledweaponry:item/aegis_wood"
   },
   "display": {
     "thirdperson_righthand": {

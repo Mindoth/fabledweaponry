@@ -1,6 +1,6 @@
 package net.mindoth.fabledweaponry.item;
 
-import net.minecraft.item.BowItem;
+import net.minecraft.world.item.BowItem;
 
 public class LongbowItem extends BowItem {
 

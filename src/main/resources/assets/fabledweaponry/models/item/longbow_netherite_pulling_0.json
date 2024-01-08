@@ -1,6 +1,6 @@
 {
   "parent": "fabledweaponry:item/longbow_netherite",
   "textures": {
-    "layer0": "fabledweaponry:items/longbow_netherite_pulling_0"
+    "layer0": "fabledweaponry:item/longbow_netherite_pulling_0"
   }
 }

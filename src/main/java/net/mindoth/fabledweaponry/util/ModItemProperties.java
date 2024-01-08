@@ -1,10 +1,11 @@
 package net.mindoth.fabledweaponry.util;
 
-import net.mindoth.fabledweaponry.FabledWeaponry;
 import net.mindoth.fabledweaponry.registries.FabledWeaponryItems;
-import net.minecraft.item.*;
-import net.minecraft.util.IItemProvider;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.client.renderer.item.ItemProperties;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.CrossbowItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 
 public class ModItemProperties {
 
@@ -36,13 +37,13 @@ public class ModItemProperties {
     }
 
     public static void makeShield(Item item) {
-        ItemModelsProperties.register(item, new ResourceLocation("blocking"), (p_239421_0_, p_239421_1_, p_239421_2_) -> {
+        ItemProperties.register(item, new ResourceLocation("blocking"), (p_239421_0_, p_239421_1_, p_239421_2_, p_174578_) -> {
             return p_239421_2_ != null && p_239421_2_.isUsingItem() && p_239421_2_.getUseItem() == p_239421_0_ ? 1.0F : 0.0F;
         });
     }
 
     public static void makeBow(Item item) {
-        ItemModelsProperties.register(item, new ResourceLocation("pull"), (p_239429_0_, p_239429_1_, p_239429_2_) -> {
+        ItemProperties.register(item, new ResourceLocation("pull"), (p_239429_0_, p_239429_1_, p_239429_2_, p_174578_) -> {
             if (p_239429_2_ == null) {
                 return 0.0F;
             }
@@ -52,26 +53,26 @@ public class ModItemProperties {
             }
         });
 
-        ItemModelsProperties.register(item, new ResourceLocation("pulling"), (p_239428_0_, p_239428_1_, p_239428_2_) -> {
+        ItemProperties.register(item, new ResourceLocation("pulling"), (p_239428_0_, p_239428_1_, p_239428_2_, p_174578_) -> {
             return p_239428_2_ != null && p_239428_2_.isUsingItem() && p_239428_2_.getUseItem() == p_239428_0_ ? 1.0F : 0.0F;
         });
     }
 
     public static void makeCrossbow(Item item) {
-        ItemModelsProperties.register(item, new ResourceLocation("pull"), (p_239427_0_, p_239427_1_, p_239427_2_) -> {
+        ItemProperties.register(item, new ResourceLocation("pull"), (p_239427_0_, p_239427_1_, p_239427_2_, p_174578_) -> {
             if (p_239427_2_ == null) {
                 return 0.0F;
             } else {
                 return CrossbowItem.isCharged(p_239427_0_) ? 0.0F : (float)(p_239427_0_.getUseDuration() - p_239427_2_.getUseItemRemainingTicks()) / (float)CrossbowItem.getChargeDuration(p_239427_0_);
             }
         });
-        ItemModelsProperties.register(item, new ResourceLocation("pulling"), (p_239426_0_, p_239426_1_, p_239426_2_) -> {
+        ItemProperties.register(item, new ResourceLocation("pulling"), (p_239426_0_, p_239426_1_, p_239426_2_, p_174578_) -> {
             return p_239426_2_ != null && p_239426_2_.isUsingItem() && p_239426_2_.getUseItem() == p_239426_0_ && !CrossbowItem.isCharged(p_239426_0_) ? 1.0F : 0.0F;
         });
-        ItemModelsProperties.register(item, new ResourceLocation("charged"), (p_239425_0_, p_239425_1_, p_239425_2_) -> {
+        ItemProperties.register(item, new ResourceLocation("charged"), (p_239425_0_, p_239425_1_, p_239425_2_, p_174578_) -> {
             return p_239425_2_ != null && CrossbowItem.isCharged(p_239425_0_) ? 1.0F : 0.0F;
         });
-        ItemModelsProperties.register(item, new ResourceLocation("firework"), (p_239424_0_, p_239424_1_, p_239424_2_) -> {
+        ItemProperties.register(item, new ResourceLocation("firework"), (p_239424_0_, p_239424_1_, p_239424_2_, p_174578_) -> {
             return p_239424_2_ != null && CrossbowItem.isCharged(p_239424_0_) && CrossbowItem.containsChargedProjectile(p_239424_0_, Items.FIREWORK_ROCKET) ? 1.0F : 0.0F;
         });
     }

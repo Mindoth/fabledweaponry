@@ -1,6 +1,6 @@
 {
   "parent": "fabledweaponry:item/longbow_diamond",
   "textures": {
-    "layer0": "fabledweaponry:items/longbow_diamond_pulling_1"
+    "layer0": "fabledweaponry:item/longbow_diamond_pulling_1"
   }
 }

@@ -1,6 +1,6 @@
 package net.mindoth.fabledweaponry.item;
 
-import net.minecraft.item.Item;
+import net.minecraft.world.item.Item;
 
 public class TomeItem extends Item {
     public TomeItem(Properties pProperties) {

@@ -1,6 +1,6 @@
 {
   "parent": "item/crossbow",
   "textures": {
-    "layer0": "fabledweaponry:items/ballista_leather_arrow"
+    "layer0": "fabledweaponry:item/ballista_leather_arrow"
   }
 }

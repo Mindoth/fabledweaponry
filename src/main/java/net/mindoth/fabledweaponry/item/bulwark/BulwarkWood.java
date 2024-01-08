@@ -1,8 +1,8 @@
 package net.mindoth.fabledweaponry.item.bulwark;
 
 import net.mindoth.fabledweaponry.item.BulwarkItem;
-import net.minecraft.item.ItemStack;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.ItemStack;
 
 public class BulwarkWood extends BulwarkItem {
     public BulwarkWood(Properties p_i48470_1_) {
@@ -11,6 +11,6 @@ public class BulwarkWood extends BulwarkItem {
 
     @Override
     public boolean isValidRepairItem(ItemStack pToRepair, ItemStack pRepair) {
-        return ItemTags.PLANKS.contains(pRepair.getItem()) || super.isValidRepairItem(pToRepair, pRepair);
+        return pRepair.is(ItemTags.PLANKS) || super.isValidRepairItem(pToRepair, pRepair);
     }
 }

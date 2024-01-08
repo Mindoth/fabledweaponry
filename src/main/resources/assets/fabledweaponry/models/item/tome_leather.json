@@ -1,11 +1,11 @@
 {
   "gui_light": "front",
-  "loader": "forge:separate-perspective",
+  "loader": "forge:separate_transforms",
   "base": {
     "credit": "Made with Blockbench",
     "texture_size": [32, 32],
     "textures": {
-      "2": "fabledweaponry:items/tome_leather_model"
+      "2": "fabledweaponry:item/tome_leather_model"
     },
     "elements": [
       {
@@ -306,19 +306,19 @@
     "gui": {
       "parent": "item/generated",
       "textures": {
-        "layer0": "fabledweaponry:items/tome_leather"
+        "layer0": "fabledweaponry:item/tome_leather"
       }
     },
     "ground": {
       "parent": "item/generated",
       "textures": {
-        "layer0": "fabledweaponry:items/tome_leather"
+        "layer0": "fabledweaponry:item/tome_leather"
       }
     },
     "fixed": {
       "parent": "item/generated",
       "textures": {
-        "layer0": "fabledweaponry:items/tome_leather"
+        "layer0": "fabledweaponry:item/tome_leather"
       }
     }
   }

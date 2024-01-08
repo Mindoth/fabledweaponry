@@ -1,6 +1,6 @@
 {
   "parent": "fabledweaponry:item/base/greatsword",
   "textures": {
-    "layer0": "fabledweaponry:items/greatsword_stone"
+    "layer0": "fabledweaponry:item/greatsword_stone"
   }
 }

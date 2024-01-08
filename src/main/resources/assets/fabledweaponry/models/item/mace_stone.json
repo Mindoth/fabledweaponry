@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "fabledweaponry:items/mace_stone"
+    "layer0": "fabledweaponry:item/mace_stone"
   }
 }

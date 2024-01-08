@@ -1,8 +1,8 @@
 package net.mindoth.fabledweaponry.item.bulwark;
 
 import net.mindoth.fabledweaponry.item.BulwarkItem;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 
 public class BulwarkIron extends BulwarkItem {
     public BulwarkIron(Properties p_i48470_1_) {

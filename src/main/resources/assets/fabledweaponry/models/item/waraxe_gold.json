@@ -1,6 +1,6 @@
 {
   "parent": "fabledweaponry:item/base/waraxe",
   "textures": {
-    "layer0": "fabledweaponry:items/waraxe_gold"
+    "layer0": "fabledweaponry:item/waraxe_gold"
   }
 }

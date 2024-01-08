@@ -1,7 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "fabledweaponry:items/ballista_gold"
+    "layer0": "fabledweaponry:item/ballista_gold"
   },
   "display": {
     "thirdperson_righthand": {

@@ -1,18 +1,18 @@
 package net.mindoth.fabledweaponry.item;
 
-import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.enchantment.Enchantments;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ArrowItem;
-import net.minecraft.item.CrossbowItem;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.nbt.ListNBT;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvents;
-import net.minecraft.world.World;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ArrowItem;
+import net.minecraft.world.item.CrossbowItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.Level;
 
 public class BallistaItem extends CrossbowItem {
     public BallistaItem(Properties p_i50052_1_) {
@@ -23,13 +23,13 @@ public class BallistaItem extends CrossbowItem {
     protected boolean midLoadSoundPlayed = false;
 
     @Override
-    public void releaseUsing(ItemStack pStack, World pLevel, LivingEntity pEntityLiving, int pTimeLeft) {
+    public void releaseUsing(ItemStack pStack, Level pLevel, LivingEntity pEntityLiving, int pTimeLeft) {
         int i = this.getUseDuration(pStack) - pTimeLeft;
         float f = getBallistaPowerForTime(i, pStack);
         if (f >= 1.0F && !isCharged(pStack) && tryBallistaLoadProjectiles(pEntityLiving, pStack)) {
             setCharged(pStack, true);
-            SoundCategory soundcategory = pEntityLiving instanceof PlayerEntity ? SoundCategory.PLAYERS : SoundCategory.HOSTILE;
-            pLevel.playSound((PlayerEntity)null, pEntityLiving.getX(), pEntityLiving.getY(), pEntityLiving.getZ(), SoundEvents.CROSSBOW_LOADING_END, soundcategory, 1.0F, 1.0F / (random.nextFloat() * 0.5F + 1.0F) + 0.2F);
+            SoundSource soundsource = pEntityLiving instanceof Player ? SoundSource.PLAYERS : SoundSource.HOSTILE;
+            pLevel.playSound((Player)null, pEntityLiving.getX(), pEntityLiving.getY(), pEntityLiving.getZ(), SoundEvents.CROSSBOW_LOADING_END, soundsource, 1.0F, 1.0F / (pLevel.getRandom().nextFloat() * 0.5F + 1.0F) + 0.2F);
         }
 
     }
@@ -56,7 +56,7 @@ public class BallistaItem extends CrossbowItem {
     private static boolean tryBallistaLoadProjectiles(LivingEntity pShooter, ItemStack pCrossbowStack) {
         int i = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.MULTISHOT, pCrossbowStack);
         int j = i == 0 ? 1 : 3;
-        boolean flag = pShooter instanceof PlayerEntity && ((PlayerEntity)pShooter).abilities.instabuild;
+        boolean flag = pShooter instanceof Player && ((Player)pShooter).getAbilities().instabuild;
         ItemStack itemstack = pShooter.getProjectile(pCrossbowStack);
         ItemStack itemstack1 = itemstack.copy();
 
@@ -86,8 +86,8 @@ public class BallistaItem extends CrossbowItem {
             ItemStack itemstack;
             if (!flag && !pIsCreative && !pHasAmmo) {
                 itemstack = pAmmoStack.split(1);
-                if (pAmmoStack.isEmpty() && pShooter instanceof PlayerEntity) {
-                    ((PlayerEntity)pShooter).inventory.removeItem(pAmmoStack);
+                if (pAmmoStack.isEmpty() && pShooter instanceof Player) {
+                    ((Player)pShooter).getInventory().removeItem(pAmmoStack);
                 }
             } else {
                 itemstack = pAmmoStack.copy();
@@ -99,15 +99,15 @@ public class BallistaItem extends CrossbowItem {
     }
 
     private static void addBallistaChargedProjectile(ItemStack pCrossbowStack, ItemStack pAmmoStack) {
-        CompoundNBT compoundnbt = pCrossbowStack.getOrCreateTag();
-        ListNBT listnbt;
+        CompoundTag compoundnbt = pCrossbowStack.getOrCreateTag();
+        ListTag listnbt;
         if (compoundnbt.contains("ChargedProjectiles", 9)) {
             listnbt = compoundnbt.getList("ChargedProjectiles", 10);
         } else {
-            listnbt = new ListNBT();
+            listnbt = new ListTag();
         }
 
-        CompoundNBT compoundnbt1 = new CompoundNBT();
+        CompoundTag compoundnbt1 = new CompoundTag();
         pAmmoStack.save(compoundnbt1);
         listnbt.add(compoundnbt1);
         compoundnbt.put("ChargedProjectiles", listnbt);

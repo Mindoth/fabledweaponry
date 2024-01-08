@@ -1,11 +1,10 @@
 package net.mindoth.fabledweaponry.item;
 
-import net.minecraft.item.IItemTier;
-import net.minecraft.item.SwordItem;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.Tiers;
 
 public class MaceItem extends SwordItem {
-    public MaceItem(IItemTier pTier, int pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties) {
+    public MaceItem(Tiers pTier, int pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties) {
         super(pTier, pAttackDamageModifier, pAttackSpeedModifier, pProperties);
     }
 }

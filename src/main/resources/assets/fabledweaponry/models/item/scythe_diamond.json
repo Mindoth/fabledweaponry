@@ -1,6 +1,6 @@
 {
   "parent": "fabledweaponry:item/base/scythe",
   "textures": {
-    "layer0": "fabledweaponry:items/scythe_diamond"
+    "layer0": "fabledweaponry:item/scythe_diamond"
   }
 }

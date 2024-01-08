@@ -1,8 +1,8 @@
 package net.mindoth.fabledweaponry.item.aegis;
 
 import net.mindoth.fabledweaponry.item.AegisItem;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 
 public class AegisIron extends AegisItem {
     public AegisIron(Properties p_i48470_1_) {

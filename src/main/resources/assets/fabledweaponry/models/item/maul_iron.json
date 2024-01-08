@@ -1,12 +1,12 @@
 {
   "gui_light": "front",
-  "loader": "forge:separate-perspective",
+  "loader": "forge:separate_transforms",
   "base": {
     "credit": "Made with Blockbench",
     "texture_size": [64, 64],
     "textures": {
-      "0": "fabledweaponry:items/maul_iron_model",
-      "particle": "fabledweaponry:items/maul_iron_model"
+      "0": "fabledweaponry:item/maul_iron_model",
+      "particle": "fabledweaponry:item/maul_iron_model"
     },
     "elements": [
       {
@@ -525,19 +525,19 @@
     "gui": {
       "parent": "item/generated",
       "textures": {
-        "layer0": "fabledweaponry:items/maul_iron"
+        "layer0": "fabledweaponry:item/maul_iron"
       }
     },
     "ground": {
       "parent": "item/generated",
       "textures": {
-        "layer0": "fabledweaponry:items/maul_iron"
+        "layer0": "fabledweaponry:item/maul_iron"
       }
     },
     "fixed": {
       "parent": "item/generated",
       "textures": {
-        "layer0": "fabledweaponry:items/maul_iron"
+        "layer0": "fabledweaponry:item/maul_iron"
       }
     }
   }

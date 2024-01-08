@@ -1,6 +1,6 @@
 {
   "parent": "item/crossbow",
   "textures": {
-    "layer0": "fabledweaponry:items/ballista_gold_firework"
+    "layer0": "fabledweaponry:item/ballista_gold_firework"
   }
 }

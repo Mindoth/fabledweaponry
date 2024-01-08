@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/handheld",
   "textures": {
-    "layer0": "fabledweaponry:items/dagger_stone"
+    "layer0": "fabledweaponry:item/dagger_stone"
   }
 }

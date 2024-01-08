@@ -23,7 +23,7 @@
     }
   },
   "textures": {
-    "layer0": "fabledweaponry:items/longbow"
+    "layer0": "fabledweaponry:item/longbow"
   },
   "overrides": [
     {

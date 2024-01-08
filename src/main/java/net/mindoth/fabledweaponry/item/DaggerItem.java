@@ -1,10 +1,10 @@
 package net.mindoth.fabledweaponry.item;
 
-import net.minecraft.item.IItemTier;
-import net.minecraft.item.SwordItem;
+import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.Tiers;
 
 public class DaggerItem extends SwordItem {
-    public DaggerItem(IItemTier pTier, int pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties) {
+    public DaggerItem(Tiers pTier, int pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties) {
         super(pTier, pAttackDamageModifier, pAttackSpeedModifier, pProperties);
     }
 }

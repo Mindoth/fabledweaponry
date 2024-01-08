@@ -2,8 +2,8 @@
   "credit": "Made with Blockbench",
   "texture_size": [32, 32],
   "textures": {
-    "1": "fabledweaponry:items/scimitar_gold",
-    "particle": "fabledweaponry:items/scimitar_gold"
+    "1": "fabledweaponry:item/scimitar_gold",
+    "particle": "fabledweaponry:item/scimitar_gold"
   },
   "elements": [
     {

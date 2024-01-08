@@ -1,11 +1,11 @@
 package net.mindoth.fabledweaponry.item.ballista;
 
 import net.mindoth.fabledweaponry.item.BallistaItem;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.world.World;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 
 public class BallistaIron extends BallistaItem {
     public BallistaIron(Properties p_i50052_1_) {
@@ -13,22 +13,24 @@ public class BallistaIron extends BallistaItem {
     }
 
     @Override
-    public ActionResult<ItemStack> use(World pLevel, PlayerEntity pPlayer, Hand pHand) {
+    public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pHand) {
         ItemStack itemstack = pPlayer.getItemInHand(pHand);
         if (isCharged(itemstack)) {
-            performShooting(pLevel, pPlayer, pHand, itemstack, getHeavyShootingPower(itemstack) * 2.5f, 0.5F);
+            performShooting(pLevel, pPlayer, pHand, itemstack, getHeavyShootingPower(itemstack) * 2.5F, 0.5F);
             setCharged(itemstack, false);
-            return ActionResult.consume(itemstack);
-        } else if (!pPlayer.getProjectile(itemstack).isEmpty()) {
+            return InteractionResultHolder.consume(itemstack);
+        }
+        else if (!pPlayer.getProjectile(itemstack).isEmpty()) {
             if (!isCharged(itemstack)) {
                 this.startSoundPlayed = false;
                 this.midLoadSoundPlayed = false;
                 pPlayer.startUsingItem(pHand);
             }
 
-            return ActionResult.consume(itemstack);
-        } else {
-            return ActionResult.fail(itemstack);
+            return InteractionResultHolder.consume(itemstack);
+        }
+        else {
+            return InteractionResultHolder.fail(itemstack);
         }
     }
 }

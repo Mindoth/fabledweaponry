@@ -1,10 +1,10 @@
 package net.mindoth.fabledweaponry.item;
 
-import net.minecraft.item.AxeItem;
-import net.minecraft.item.IItemTier;
+import net.minecraft.world.item.AxeItem;
+import net.minecraft.world.item.Tiers;
 
 public class WaraxeItem extends AxeItem {
-    public WaraxeItem(IItemTier pTier, float pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties) {
+    public WaraxeItem(Tiers pTier, float pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties) {
         super(pTier, pAttackDamageModifier, pAttackSpeedModifier, pProperties);
     }
 }
