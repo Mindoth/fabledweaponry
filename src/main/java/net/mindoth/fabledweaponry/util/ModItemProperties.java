@@ -1,9 +1,10 @@
 package net.mindoth.fabledweaponry.util;
 
-import net.mindoth.fabledweaponry.FabledWeaponry;
 import net.mindoth.fabledweaponry.registries.FabledWeaponryItems;
-import net.minecraft.item.*;
-import net.minecraft.util.IItemProvider;
+import net.minecraft.item.CrossbowItem;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemModelsProperties;
+import net.minecraft.item.Items;
 import net.minecraft.util.ResourceLocation;
 
 public class ModItemProperties {
