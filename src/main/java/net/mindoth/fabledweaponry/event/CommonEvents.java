@@ -12,6 +12,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingHealEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -190,7 +191,7 @@ public class CommonEvents {
     public static void scytheEffect(final LivingHurtEvent event) {
         //Check that its melee damage
         if ( event.getSource().getDirectEntity() instanceof LivingEntity ) {
-            LivingEntity source = (LivingEntity) event.getSource().getEntity();
+            LivingEntity source = (LivingEntity)event.getSource().getEntity();
             LivingEntity target = event.getEntity();
             Level level = target.level();
             float amount = event.getAmount();
@@ -200,6 +201,7 @@ public class CommonEvents {
                         List<Entity> entitiesAround;
                         entitiesAround = level.getEntities(target, target.getBoundingBox().inflate(2.0D, 0.0D, 2.0D), Entity::isAlive);
                         entitiesAround.remove(target);
+                        entitiesAround.remove(source);
                         entitiesAround.removeIf(closeEntities -> closeEntities.isAlliedTo(source));
                         entitiesAround.removeIf(closeEntities -> !(closeEntities instanceof LivingEntity));
                         if ( entitiesAround.size() > 0 ) {
@@ -232,21 +234,31 @@ public class CommonEvents {
     }
 
     @SubscribeEvent
-    public static void maceEffect(final LivingHurtEvent event) {
-        //Check that its melee damage
-        if (event.getSource().getDirectEntity() instanceof LivingEntity && event.getSource().getEntity() instanceof LivingEntity) {
+    public static void maceEffect(final LivingAttackEvent event) {
+        if ( event.getSource().getDirectEntity() instanceof LivingEntity && event.getSource().getEntity() instanceof LivingEntity ) {
             LivingEntity source = (LivingEntity) event.getSource().getEntity();
             LivingEntity target = event.getEntity();
             Level level = target.level();
 
-            if ( !level.isClientSide ) {
+            if ( !level.isClientSide && !event.getSource().is(DamageTypes.MAGIC) ) {
                 if ( source.getItemBySlot(EquipmentSlot.MAINHAND).getItem() instanceof MaceItem ) {
                     if ( source.getItemBySlot(EquipmentSlot.MAINHAND).getItem() instanceof TomeItem || source.getItemBySlot(EquipmentSlot.OFFHAND).getItem() instanceof TomeItem ) {
-                        event.setAmount(0);
                         target.hurt(target.damageSources().magic(), event.getAmount());
+                        target.knockback(0.5F, -source.getLookAngle().x, -source.getLookAngle().z);
+                        event.setCanceled(true);
                     }
                 }
             }
+        }
+    }
+
+    @SubscribeEvent
+    public static void dmgPrint(final LivingDamageEvent event) {
+        LivingEntity target = event.getEntity();
+        Level level = target.level();
+
+        if ( !level.isClientSide ) {
+            System.out.println(event.getAmount());
         }
     }
 
