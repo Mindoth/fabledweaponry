@@ -207,7 +207,7 @@ public class CommonEvents {
                         if ( entitiesAround.size() > 0 ) {
                             event.setAmount(Math.max(1, amount / (entitiesAround.size() + 1)));
                             for ( Entity damageableEntities : entitiesAround ) {
-                                damageableEntities.hurt(target.damageSources().noAggroMobAttack(source), Math.max(1, amount / (entitiesAround.size() + 1)));
+                                damageableEntities.hurt(target.damageSources().mobAttack(source), Math.max(1, amount));
                             }
                         }
                     }
