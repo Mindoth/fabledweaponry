@@ -1,13 +1,13 @@
 package net.mindoth.fabledweaponry;
 
 import net.mindoth.fabledweaponry.util.ModItemProperties;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 
 public class FabledWeaponryClient {
-    public static void registerHandlers() {
-        IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+    public static void registerHandlers(IEventBus modBus, ModContainer modContainer) {
         modBus.addListener(FabledWeaponryClient::clientSetup);
     }
 
