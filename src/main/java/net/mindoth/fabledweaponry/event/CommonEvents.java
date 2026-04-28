@@ -14,6 +14,9 @@ import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
+import net.neoforged.neoforge.event.entity.living.LivingHealEvent;
+import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
+import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
 import java.util.List;
 
@@ -22,18 +25,18 @@ public class CommonEvents {
 
     public static boolean isMeleeAttack(DamageSource source) {
         return source.getEntity() == source.getDirectEntity()
-                && !source.isIndirect()
+                && source.isDirect()
                 && !source.is(DamageTypes.THORNS);
     }
 
     @SubscribeEvent
-    public static void greatswordEffect(final LivingDamageEvent event) {
+    public static void greatswordEffect(final LivingDamageEvent.Pre event) {
         //Check that its melee damage
-        if ( event.getSource().getDirectEntity() instanceof LivingEntity && event.getSource().getEntity() instanceof LivingEntity ) {
-            LivingEntity source = (LivingEntity) event.getSource().getEntity();
+        if ( event.getSource().getDirectEntity() instanceof LivingEntity && event.getSource().getEntity() instanceof LivingEntity) {
+            LivingEntity source = (LivingEntity)event.getSource().getEntity();
             LivingEntity target = event.getEntity();
             Level level = target.level();
-            float amount = event.getAmount();
+            float amount = event.getOriginalDamage();
 
             if ( !level.isClientSide ) {
                 if ( (source.getItemBySlot(EquipmentSlot.MAINHAND).getItem() instanceof GreatswordItem && source.getItemBySlot(EquipmentSlot.OFFHAND).isEmpty()) || (source.getItemBySlot(EquipmentSlot.OFFHAND).getItem() instanceof GreatswordItem && source.getItemBySlot(EquipmentSlot.MAINHAND).isEmpty()) ) {
@@ -45,19 +48,19 @@ public class CommonEvents {
                         handItem = source.getItemBySlot(EquipmentSlot.OFFHAND).getItem();
                     }
                     if (handItem == FabledWeaponryItems.GREATSWORD_WOOD.get() || handItem == FabledWeaponryItems.GREATSWORD_GOLD.get()) {
-                        event.setAmount(amount * 1.20f);
+                        event.setNewDamage(amount * 1.20f);
                     }
                     if (handItem == FabledWeaponryItems.GREATSWORD_STONE.get()) {
-                        event.setAmount(amount * 1.25f);
+                        event.setNewDamage(amount * 1.25f);
                     }
                     if (handItem == FabledWeaponryItems.GREATSWORD_IRON.get()) {
-                        event.setAmount(amount * 1.30f);
+                        event.setNewDamage(amount * 1.30f);
                     }
                     if (handItem == FabledWeaponryItems.GREATSWORD_DIAMOND.get()) {
-                        event.setAmount(amount * 1.35f);
+                        event.setNewDamage(amount * 1.35f);
                     }
                     if (handItem == FabledWeaponryItems.GREATSWORD_NETHERITE.get()) {
-                        event.setAmount(amount * 1.40f);
+                        event.setNewDamage(amount * 1.40f);
                     }
                 }
                 if ( (target.getItemBySlot(EquipmentSlot.MAINHAND).getItem() instanceof GreatswordItem && target.getItemBySlot(EquipmentSlot.OFFHAND).isEmpty()) || (target.getItemBySlot(EquipmentSlot.OFFHAND).getItem() instanceof GreatswordItem && target.getItemBySlot(EquipmentSlot.MAINHAND).isEmpty()) ) {
@@ -69,19 +72,19 @@ public class CommonEvents {
                         handItem = target.getItemBySlot(EquipmentSlot.OFFHAND).getItem();
                     }
                     if (handItem == FabledWeaponryItems.GREATSWORD_WOOD.get() || handItem == FabledWeaponryItems.GREATSWORD_GOLD.get()) {
-                        event.setAmount(amount * 0.80f);
+                        event.setNewDamage(amount * 0.80f);
                     }
                     if (handItem == FabledWeaponryItems.GREATSWORD_STONE.get()) {
-                        event.setAmount(amount * 0.75f);
+                        event.setNewDamage(amount * 0.75f);
                     }
                     if (handItem == FabledWeaponryItems.GREATSWORD_IRON.get()) {
-                        event.setAmount(amount * 0.70f);
+                        event.setNewDamage(amount * 0.70f);
                     }
                     if (handItem == FabledWeaponryItems.GREATSWORD_DIAMOND.get()) {
-                        event.setAmount(amount * 0.65f);
+                        event.setNewDamage(amount * 0.65f);
                     }
                     if (handItem == FabledWeaponryItems.GREATSWORD_NETHERITE.get()) {
-                        event.setAmount(amount * 0.60f);
+                        event.setNewDamage(amount * 0.60f);
                     }
                 }
             }
@@ -89,13 +92,13 @@ public class CommonEvents {
     }
 
     @SubscribeEvent
-    public static void waraxeEffect(final LivingDamageEvent event) {
+    public static void waraxeEffect(final LivingDamageEvent.Pre event) {
         //Check that its melee damage
         if ( event.getSource().getDirectEntity() instanceof LivingEntity && event.getSource().getEntity() instanceof LivingEntity ) {
             LivingEntity source = (LivingEntity) event.getSource().getEntity();
             LivingEntity target = event.getEntity();
             Level level = target.level();
-            float amount = event.getAmount();
+            float amount = event.getOriginalDamage();
 
             if ( !level.isClientSide ) {
                 if ( source.getItemBySlot(EquipmentSlot.MAINHAND).getItem() instanceof WaraxeItem ) {
@@ -108,57 +111,57 @@ public class CommonEvents {
                     }
                     if (handItem == FabledWeaponryItems.WARAXE_WOOD.get() || handItem == FabledWeaponryItems.WARAXE_GOLD.get()) {
                         if ( source.getHealth() <= source.getMaxHealth() * 0.25 ) {
-                            event.setAmount(amount * 2.00f);
+                            event.setNewDamage(amount * 2.00f);
                         }
                         else if ( source.getHealth() <= source.getMaxHealth() * 0.50 ) {
-                            event.setAmount(amount * 1.50f);
+                            event.setNewDamage(amount * 1.50f);
                         }
                         else if ( source.getHealth() <= source.getMaxHealth() * 0.75 ) {
-                            event.setAmount(amount * 1.25f);
+                            event.setNewDamage(amount * 1.25f);
                         }
                     }
                     if (handItem == FabledWeaponryItems.WARAXE_STONE.get()) {
                         if ( source.getHealth() <= source.getMaxHealth() * 0.25 ) {
-                            event.setAmount(amount * 2.50f);
+                            event.setNewDamage(amount * 2.50f);
                         }
                         else if ( source.getHealth() <= source.getMaxHealth() * 0.50 ) {
-                            event.setAmount(amount * 1.75f);
+                            event.setNewDamage(amount * 1.75f);
                         }
                         else if ( source.getHealth() <= source.getMaxHealth() * 0.75 ) {
-                            event.setAmount(amount * 1.375f);
+                            event.setNewDamage(amount * 1.375f);
                         }
                     }
                     if (handItem == FabledWeaponryItems.WARAXE_IRON.get()) {
                         if ( source.getHealth() <= source.getMaxHealth() * 0.25 ) {
-                            event.setAmount(amount * 3.00f);
+                            event.setNewDamage(amount * 3.00f);
                         }
                         else if ( source.getHealth() <= source.getMaxHealth() * 0.50 ) {
-                            event.setAmount(amount * 2.00f);
+                            event.setNewDamage(amount * 2.00f);
                         }
                         else if ( source.getHealth() <= source.getMaxHealth() * 0.75 ) {
-                            event.setAmount(amount * 1.50f);
+                            event.setNewDamage(amount * 1.50f);
                         }
                     }
                     if (handItem == FabledWeaponryItems.WARAXE_DIAMOND.get()) {
                         if ( source.getHealth() <= source.getMaxHealth() * 0.25 ) {
-                            event.setAmount(amount * 3.50f);
+                            event.setNewDamage(amount * 3.50f);
                         }
                         else if ( source.getHealth() <= source.getMaxHealth() * 0.50 ) {
-                            event.setAmount(amount * 2.25f);
+                            event.setNewDamage(amount * 2.25f);
                         }
                         else if ( source.getHealth() <= source.getMaxHealth() * 0.75 ) {
-                            event.setAmount(amount * 1.625f);
+                            event.setNewDamage(amount * 1.625f);
                         }
                     }
                     if (handItem == FabledWeaponryItems.WARAXE_NETHERITE.get()) {
                         if ( source.getHealth() <= source.getMaxHealth() * 0.25 ) {
-                            event.setAmount(amount * 4.00f);
+                            event.setNewDamage(amount * 4.00f);
                         }
                         else if ( source.getHealth() <= source.getMaxHealth() * 0.50 ) {
-                            event.setAmount(amount * 2.50f);
+                            event.setNewDamage(amount * 2.50f);
                         }
                         else if ( source.getHealth() <= source.getMaxHealth() * 0.75 ) {
-                            event.setAmount(amount * 1.75f);
+                            event.setNewDamage(amount * 1.75f);
                         }
                     }
                 }
@@ -167,24 +170,24 @@ public class CommonEvents {
     }
 
     @SubscribeEvent
-    public static void maulEffect(final LivingDamageEvent event) {
+    public static void maulEffect(final LivingDamageEvent.Pre event) {
         //Check that its melee damage
         if ( event.getSource().getDirectEntity() instanceof LivingEntity && event.getSource().getEntity() instanceof LivingEntity ) {
             LivingEntity source = (LivingEntity) event.getSource().getEntity();
             LivingEntity target = event.getEntity();
             Level level = target.level();
-            float amount = event.getAmount();
+            float amount = event.getOriginalDamage();
 
             if ( !level.isClientSide ) {
                 if ( source.getItemBySlot(EquipmentSlot.MAINHAND).getItem() instanceof MaulItem ) {
-                    event.setAmount(amount + (float)(target.getBoundingBox().getXsize() + target.getBoundingBox().getYsize() + target.getBoundingBox().getZsize()));
+                    event.setNewDamage(amount + (float)(target.getBoundingBox().getXsize() + target.getBoundingBox().getYsize() + target.getBoundingBox().getZsize()));
                 }
             }
         }
     }
 
     @SubscribeEvent
-    public static void scytheEffect(final LivingHurtEvent event) {
+    public static void scytheEffect(final LivingIncomingDamageEvent event) {
         //Check that its melee damage
         if ( event.getSource().getDirectEntity() instanceof LivingEntity && event.getSource().getEntity() instanceof LivingEntity ) {
             LivingEntity source = (LivingEntity)event.getSource().getEntity();
@@ -213,24 +216,24 @@ public class CommonEvents {
     }
 
     @SubscribeEvent
-    public static void daggerEffect(final LivingDamageEvent event) {
+    public static void daggerEffect(final LivingDamageEvent.Pre event) {
         //Check that its melee damage
         if ( event.getSource().getDirectEntity() instanceof LivingEntity && event.getSource().getEntity() instanceof LivingEntity ) {
             LivingEntity source = (LivingEntity) event.getSource().getEntity();
             LivingEntity target = event.getEntity();
             Level level = target.level();
-            float amount = event.getAmount();
+            float amount = event.getOriginalDamage();
             if ( !level.isClientSide ) {
                 if ( source.getItemBySlot(EquipmentSlot.MAINHAND).getItem() instanceof DaggerItem ) {
                     double range = source.distanceTo(target);
-                    event.setAmount(Math.max(amount, amount + (8 - ((float)range) * 2)) );
+                    event.setNewDamage(Math.max(amount, amount + (8 - ((float)range) * 2)) );
                 }
             }
         }
     }
 
     @SubscribeEvent
-    public static void maceEffect(final LivingAttackEvent event) {
+    public static void maceEffect(final LivingIncomingDamageEvent event) {
         if ( event.getSource().getDirectEntity() instanceof LivingEntity && event.getSource().getEntity() instanceof LivingEntity ) {
             LivingEntity source = (LivingEntity) event.getSource().getEntity();
             LivingEntity target = event.getEntity();
@@ -313,19 +316,18 @@ public class CommonEvents {
         }
     }
 
-    @SubscribeEvent
-    public static void bulwarkEffect(TickEvent.PlayerTickEvent event) {
-        Player player = event.player;
+    public static void bulwarkEffect(PlayerTickEvent.Post event) {
+        Player player = event.getEntity();
         handleBulwarkEffect(player);
     }
 
     @SubscribeEvent
-    public static void tomeEffect(final LivingDamageEvent event) {
+    public static void tomeEffect(final LivingDamageEvent.Pre event) {
         if ( event.getSource().getEntity() instanceof LivingEntity ) {
             LivingEntity source = (LivingEntity)event.getSource().getEntity();
             LivingEntity target = event.getEntity();
             Level level = target.level();
-            float amount = event.getAmount();
+            float amount = event.getOriginalDamage();
             if ( !level.isClientSide ) {
                 if ( source.getItemBySlot(EquipmentSlot.MAINHAND).getItem() instanceof TomeItem || source.getItemBySlot(EquipmentSlot.OFFHAND).getItem() instanceof TomeItem ) {
                     Item item;
@@ -337,19 +339,19 @@ public class CommonEvents {
                     }
                     if ( event.getSource().is(DamageTypes.MAGIC) || event.getSource().is(DamageTypes.INDIRECT_MAGIC) ) {
                         if ( item == FabledWeaponryItems.TOME_LEATHER.get() ) {
-                            event.setAmount(amount * 1.10f);
+                            event.setNewDamage(amount * 1.10f);
                         }
                         else if ( item == FabledWeaponryItems.TOME_IRON.get() ) {
-                            event.setAmount(amount * 1.20f);
+                            event.setNewDamage(amount * 1.20f);
                         }
                         else if ( item == FabledWeaponryItems.TOME_GOLD.get() ) {
-                            event.setAmount(amount * 1.30f);
+                            event.setNewDamage(amount * 1.30f);
                         }
                         else if ( item == FabledWeaponryItems.TOME_DIAMOND.get() ) {
-                            event.setAmount(amount * 1.40f);
+                            event.setNewDamage(amount * 1.40f);
                         }
                         else if ( item == FabledWeaponryItems.TOME_NETHERITE.get() ) {
-                            event.setAmount(amount * 1.50f);
+                            event.setNewDamage(amount * 1.50f);
                         }
                     }
                 }

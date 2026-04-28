@@ -1,0 +1,15 @@
+{
+	"type": "minecraft:smithing_transform",
+	"base": {
+		"item": "fabledweaponry:greatsword_diamond"
+	},
+	"addition": {
+		"item": "minecraft:netherite_ingot"
+	},
+	"result": {
+		"id": "fabledweaponry:greatsword_netherite"
+	},
+	"template": {
+		"item": "minecraft:netherite_upgrade_smithing_template"
+	}
+}

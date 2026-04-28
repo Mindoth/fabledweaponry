@@ -24,16 +24,18 @@ public class ScimitarItem extends SwordItem {
         ItemStack stack = event.getItemStack();
         Item item = stack.getItem();
 
-        if ( item instanceof ScimitarItem && stack.getEquipmentSlot() == EquipmentSlot.MAINHAND ) {
-            if ( stack.getDamageValue() >= stack.getMaxDamage() * 0.75 ) {
+        if ( item instanceof ScimitarItem ) {
+            int damage = stack.getDamageValue();
+            int maxDamage = stack.getMaxDamage();
+            if ( damage >= maxDamage * 0.75 ) {
                 event.removeModifier(Attributes.ATTACK_SPEED, BASE_ATTACK_SPEED_ID);
                 event.addModifier(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_ID, -1.2 - 0.3, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND);
             }
-            else if ( stack.getDamageValue() >= stack.getMaxDamage() * 0.50 ) {
+            else if ( damage >= maxDamage * 0.50 ) {
                 event.removeModifier(Attributes.ATTACK_SPEED, BASE_ATTACK_SPEED_ID);
                 event.addModifier(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_ID, -1.2 - 0.6, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND);
             }
-            else if ( stack.getDamageValue() >= stack.getMaxDamage() * 0.25 ) {
+            else if ( damage >= maxDamage * 0.25 ) {
                 event.removeModifier(Attributes.ATTACK_SPEED, BASE_ATTACK_SPEED_ID);
                 event.addModifier(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_ID, -1.2 - 0.9, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND);
             }
