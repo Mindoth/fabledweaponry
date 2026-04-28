@@ -1,6 +1,7 @@
 package net.mindoth.fabledweaponry.item.longbow;
 
 import net.mindoth.fabledweaponry.item.LongbowItem;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -13,12 +14,21 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
+import net.neoforged.neoforge.event.EventHooks;
+
+import java.util.List;
 
 public class LongbowDiamond extends LongbowItem {
     public LongbowDiamond(Properties p_i48522_1_) {
         super(p_i48522_1_);
     }
 
+    @Override
+    protected float velocityMult() {
+        return 7.0F;
+    }
+
+    /*
     @Override
     public void releaseUsing(ItemStack pStack, Level pLevel, LivingEntity pEntityLiving, int pTimeLeft) {
         if (pEntityLiving instanceof Player) {
@@ -84,4 +94,5 @@ public class LongbowDiamond extends LongbowItem {
             }
         }
     }
+    */
 }
