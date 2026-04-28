@@ -4,7 +4,7 @@ import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tiers;
 
 public class ScytheItem extends SwordItem {
-    public ScytheItem(Tiers pTier, int pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties) {
-        super(pTier, pAttackDamageModifier, pAttackSpeedModifier, pProperties);
+    public ScytheItem(Tiers tier, int attackDamageModifier, float attackSpeedModifier, Properties properties) {
+        super(tier, properties.attributes(SwordItem.createAttributes(tier, attackDamageModifier, attackSpeedModifier)));
     }
 }

@@ -9,6 +9,7 @@ import net.minecraft.world.item.Items;
 
 public class ModItemProperties {
 
+    /*
     public static void addCustomItemProperties() {
         makeBow(FabledWeaponryItems.LONGBOW.get());
         makeBow(FabledWeaponryItems.LONGBOW_LEATHER.get());
@@ -76,4 +77,5 @@ public class ModItemProperties {
             return p_239424_2_ != null && CrossbowItem.isCharged(p_239424_0_) && CrossbowItem.containsChargedProjectile(p_239424_0_, Items.FIREWORK_ROCKET) ? 1.0F : 0.0F;
         });
     }
+    */
 }

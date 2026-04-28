@@ -7,12 +7,15 @@ import net.mindoth.fabledweaponry.item.ballista.*;
 import net.mindoth.fabledweaponry.item.bulwark.*;
 import net.mindoth.fabledweaponry.item.longbow.*;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tiers;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
+import java.util.function.Supplier;
+
 public class FabledWeaponryItems {
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.createItems(FabledWeaponry.MOD_ID);
+    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(FabledWeaponry.MOD_ID);
 
     public static final DeferredItem<Item> GREATSWORD_WOOD = ITEMS.register("greatsword_wood",
             () -> new GreatswordItem(Tiers.WOOD, 5, -2.8F, new Item.Properties().stacksTo(1)));

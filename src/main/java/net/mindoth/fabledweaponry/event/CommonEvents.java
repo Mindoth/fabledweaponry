@@ -11,10 +11,13 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 
 import java.util.List;
 
-@Mod.EventBusSubscriber(modid = FabledWeaponry.MOD_ID)
+@EventBusSubscriber(modid = FabledWeaponry.MOD_ID)
 public class CommonEvents {
 
     public static boolean isMeleeAttack(DamageSource source) {
